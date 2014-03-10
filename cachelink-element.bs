@@ -34,11 +34,34 @@ When to use <code>cachelink</code></h3>
 Examples of usage</h3>
 
   <div class='example'>
-    This example shows a basic usage of the <a element>cachelink</a> to declare the location of cached copies of external content.
+    This example shows a basic usage of the <a element>cachelink</a> to declare the location of a cached copy of external content.
 
     <pre>
       &lt;cachelink>
-        &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html>Hypertext Markup Language - 2.0&lt;/a>
+        &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html>HTML 2.0&lt;/a>
+        &lt;link href="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html" rel="cache">
+      &lt;/cachelink>
+    </pre>
+  </div>
+
+  <div class='example'>
+    This example shows pointing to more than one cached copy of external content by using multiple <a element>link</a> elements.
+
+    <pre>
+      &lt;cachelink>
+        &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html>HTML 2.0&lt;/a>
+        &lt;link href="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html" rel="cache">
+        &lt;link href="http://perma.cc/RL33-W794" rel="cache">
+      &lt;/cachelink>
+    </pre>
+  </div>
+
+  <div class='example'>
+    This example shows usage of the optional <a attribute>datetime</a> attribute to declare the date the cached copy of the external content was made.
+
+    <pre>
+      &lt;cachelink>
+        &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html>HTML 2.0&lt;/a>
         &lt;link href="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html" rel="cache" datetime="2014-02-14">
         &lt;link href="http://perma.cc/RL33-W794" rel="cache" datetime="2014-03-10">
       &lt;/cachelink>
@@ -67,6 +90,11 @@ Changes to the <a element>link</a> Element</h2>
 Changes to the <a element>a</a> Element</h2>
 
   The <a element>a</a> element...
+
+<h2 id='the-datetime-attribute'>
+Changes to the <a attribute>datetime</a> Attribute</h2>
+
+  The <a attribute>datetime</a> attribute...
 
 <h2 id='acks'>
 Acknowledgements</h2>

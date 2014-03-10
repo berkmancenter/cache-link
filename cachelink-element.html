@@ -579,7 +579,8 @@ Parts of this work may be from another specification document.  If so, those par
 	<li><a href=#the-cachelink-element><span class=secno>2</span> The <span data-link-type=element title=cachelink>cachelink</span> Element</a>
 	<li><a href=#the-link-element><span class=secno>3</span> Changes to the <span data-link-type=element title=link>link</span> Element</a>
 	<li><a href=#the-a-element><span class=secno>4</span> Changes to the <span data-link-type=element title=a>a</span> Element</a>
-	<li><a href=#acks><span class=secno>5</span> Acknowledgements</a>
+	<li><a href=#the-datetime-attribute><span class=secno>5</span> Changes to the <span data-link-type=attribute title=datetime>datetime</span> Attribute</a>
+	<li><a href=#acks><span class=secno>6</span> Acknowledgements</a>
 	<li><a href=#conformance><span class=secno></span> Conformance</a>
 	<li><a href=#references><span class=secno></span> References</a>
 		<ul class=toc>
@@ -608,7 +609,26 @@ When to use <code>cachelink</code></span><a class=self-link href=#when-to-use></
 Examples of usage</span><a class=self-link href=#examples></a></h3>
 
   <div class=example>
-    This example shows a basic usage of the <a data-link-type=element href=#elementdef-cachelink title=cachelink>cachelink</a> to declare the location of cached copies of external content.
+    This example shows a basic usage of the <a data-link-type=element href=#elementdef-cachelink title=cachelink>cachelink</a> to declare the location of a cached copy of external content.
+
+    <pre>  &lt;cachelink&gt;
+    &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html&gt;Hypertext Markup Language - 2.0&lt;/a&gt;
+    &lt;link href="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html" rel="cache"&gt;
+  &lt;/cachelink&gt;
+</pre>  </div>
+
+  <div class=example>
+    This example shows pointing to more than one cached copy of external content by using multiple <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> elements.
+
+    <pre>  &lt;cachelink&gt;
+    &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html&gt;Hypertext Markup Language - 2.0&lt;/a&gt;
+    &lt;link href="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html" rel="cache"&gt;
+    &lt;link href="http://perma.cc/RL33-W794" rel="cache"&gt;
+  &lt;/cachelink&gt;
+</pre>  </div>
+
+  <div class=example>
+    This example shows usage of the optional <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#dom-time-datetime title=datetime>datetime</a> attribute to declare the date the cached copy of the external content was made.
 
     <pre>  &lt;cachelink&gt;
     &lt;a href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html&gt;Hypertext Markup Language - 2.0&lt;/a&gt;
@@ -638,7 +658,12 @@ Changes to the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/h
 
 <p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element...
 
-<h2 class="heading settled heading" data-level=5 id=acks><span class=secno>5 </span><span class=content>
+<h2 class="heading settled heading" data-level=5 id=the-datetime-attribute><span class=secno>5 </span><span class=content>
+Changes to the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#dom-time-datetime title=datetime>datetime</a> Attribute</span><a class=self-link href=#the-datetime-attribute></a></h2>
+
+<p>  The <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#dom-time-datetime title=datetime>datetime</a> attribute...
+
+<h2 class="heading settled heading" data-level=6 id=acks><span class=secno>6 </span><span class=content>
 Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
 <p>  A complete list of participants...
