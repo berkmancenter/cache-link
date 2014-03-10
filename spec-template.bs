@@ -1,0 +1,32 @@
+<h1>The cachelink Element</h1>
+<pre class='metadata'>
+Group: berkman
+Status: ED
+ED: http://cache-link.github.io/cachelink-element.html
+Shortname: cachelink-element
+Level: 1
+Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
+Abstract: The <code>cachelink</code> and <code>cache</code> elements are intended to give authors a way to provide links to cached copies of the target content of a hyperlink.
+Abstract: The primary purpose of the <code>cachelink</code> element is to address [Internet censorship] and [link rot].
+</pre>
+
+<style>
+[data-link-type=element] { font-family: monospace; }
+[data-link-type=element]::before { content: "<" }
+[data-link-type=element]::after { content: ">" }
+</style>
+
+<h2 id='intro'>
+Introduction</h2>
+
+  This specification...
+
+<h2 id='the-a-element'>
+Changes to the <a element>a</a> Element</h2>
+
+  The <a element>a</a> element...
+
+<h2 id='acks'>
+Acknowledgements</h2>
+
+  A complete list of participants...
