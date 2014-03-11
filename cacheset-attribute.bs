@@ -61,7 +61,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows usage of the optional [datetime] to declare the date the cached copy of the external content was made.
+    This example shows usage of the optional <<'datetime'>> descriptor to declare the date the cached copy of the external content was made.
 
     <pre>
       &lt;a
