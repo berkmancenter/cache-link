@@ -2,12 +2,14 @@
 <pre class='metadata'>
 Group: berkman
 Status: ED
-ED: http://cache-link.github.io/cachelink-element.html
+ED: http://berkmancenter.github.io/cache-link/cachelink-element.html
 Shortname: cachelink-element
 Level: 1
 Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
 Abstract: The <code>cachelink</code> and <code>cache</code> elements are intended to give authors a way to provide links to cached copies of the target content of a hyperlink.
 Abstract: The primary purpose of the <code>cachelink</code> element is to address [Internet censorship] and [link rot].
+Link Defaults: html5 (element) a
+Link Defaults: html5 (attribute) href
 </pre>
 
 <style>
@@ -34,7 +36,7 @@ When to use <code>cachelink</code></h3>
 Examples of usage</h3>
 
   <div class='example'>
-    This example shows a basic usage of the <a element>cachelink</a> to declare the location of a cached copy of external content.
+    This example shows a basic usage of the <a element>cachelink</a> element to declare the location of a cached copy of external content.
 
     <pre>
       &lt;cachelink>
@@ -84,7 +86,7 @@ The <a element>cachelink</a> Element</h2>
 <h2 id='the-link-element'>
 Changes to the <a element>link</a> Element</h2>
 
-  The <a element>link</a> element...
+  The <a element>link</a> element will be allowed a slightly different role as the child of a <a element>cachelink</a> element. Normally, the <a element>link</a> element links the current document to another document. The relationship is defined by the <a attribute>rel</a> attribute. Within the context of the <a element>cachelink</a> element, the <a element>link</a> element will relate the target of the accompanying <a element>a</a> element to another document, in this case, a cached copy of the target content. The value <code>cache</code> will be added to the HTML5 link type extensions list: [http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions]
 
 <h2 id='the-a-element'>
 Changes to the <a element>a</a> Element</h2>
