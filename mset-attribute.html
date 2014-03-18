@@ -566,7 +566,7 @@ Parts of this work may be from another specification document.  If so, those par
 </div>
 
 <h2 class="no-num no-toc no-ref heading settled heading" id=abstract><span class=content>Abstract</span></h2>
-<p class=p-summary data-fill-with=abstract>The <code>mset</code> attribute intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.<p>The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
+<p class=p-summary data-fill-with=abstract>The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.<p>The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
 </p>
 <div data-fill-with=at-risk></div>
 
@@ -598,7 +598,7 @@ Introduction</span><a class=self-link href=#intro></a></h2>
   
 <p>  This is achieved by introducing <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> to HTML, as an attribute for the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to support specifying dates and multiple copies of an external resource. Copies can vary in presentation, format, and origin.
 
-<p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element ramains backwards compatible with legacy user agents which will ignore the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.
+<p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element remains backwards compatible with legacy user agents which will ignore the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.
 
 <p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute differs significantly from the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element (which also relates documents to each other) in that the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute relates the target of the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to other documents where the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element relates the current document to other documents.
 
@@ -607,7 +607,7 @@ When to use <code>mset</code></span><a class=self-link href=#when-to-use></a></h
 
 <p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can be used any time a publisher authors a document which references other content via hyperlinks. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.
 
-<p>  If one ore more copies of the target content are known to exist, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute should be used embed the locations of these copies into the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element in the current document.
+<p>  If one or more copies of the target content are known to exist, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute should be used embed the locations of these copies into the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element in the current document.
 
 <p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute is not a replacement for the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute. When the original date of reference is unknown and there are no known copies of target content, developers should omit the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.
 
@@ -659,7 +659,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 </pre>  </div>
 
   <div class=example>
-    This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> are separated from the copy <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a> by one ore more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.
+    This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> are separated from the copy <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a> by one or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
@@ -684,7 +684,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
   <div class=example>
     This example shows that, if a location of a copy of target content is known, a developer can include the relationship between the target content and the copy. The relationship must be one of the keywords defined by <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a> or <a data-link-type=dfn href=#dfn-html5-link-type-extension title="html5 link type extension">HTML5 link type extension</a> definitions.
 
-<p>    The memento <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>, for example, is an extention which declares that the copy is "a fixed resource that will no longer change state."
+<p>    The memento <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>, for example, is an extension which declares that the copy is "a fixed resource that will no longer change state."
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
@@ -707,7 +707,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 Definitions</span><a class=self-link href=#defs></a></h2>
 
 <p>	The following terms are used throughout this specification so they are
-	gathered here for the readers convenience. The following list of terms
+	gathered here for the reader’s convenience. The following list of terms
 	is not exhaustive; other terms are defined throughout this
 	specification.
 

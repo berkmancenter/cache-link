@@ -6,7 +6,7 @@ ED: http://berkmancenter.github.io/cache-link/mset-attribute.html
 Shortname: mset-attribute
 Level: 1
 Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
-Abstract: The <code>mset</code> attribute intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
+Abstract: The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
 Abstract: The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
 Link Defaults: html5 (element) a
 Link Defaults: html5 (attribute) href
@@ -25,7 +25,7 @@ Introduction</h2>
   
   This is achieved by introducing <a attribute>mset</a> to HTML, as an attribute for the <a element>a</a> element to support specifying dates and multiple copies of an external resource. Copies can vary in presentation, format, and origin.
 
-  The <a element>a</a> element ramains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute.
+  The <a element>a</a> element remains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute.
 
   The <a attribute>mset</a> attribute differs significantly from the <a element>link</a> element (which also relates documents to each other) in that the <a attribute>mset</a> attribute relates the target of the <a element>a</a> element to other documents where the <a element>link</a> element relates the current document to other documents.
 
@@ -34,7 +34,7 @@ When to use <code>mset</code></h3>
 
   The <a attribute>mset</a> attribute can be used any time a publisher authors a document which references other content via hyperlinks. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.
 
-  If one ore more copies of the target content are known to exist, the <a attribute>mset</a> attribute should be used embed the locations of these copies into the <a element>a</a> element in the current document.
+  If one or more copies of the target content are known to exist, the <a attribute>mset</a> attribute should be used embed the locations of these copies into the <a element>a</a> element in the current document.
 
   The <a attribute>mset</a> attribute is not a replacement for the <a attribute>href</a> attribute. When the original date of reference is unknown and there are no known copies of target content, developers should omit the <a attribute>mset</a> attribute.
 
@@ -94,7 +94,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[!URL]] by one ore more <a>space characters</a>.
+    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[!URL]] by one or more <a>space characters</a>.
 
     <pre>
       &lt;a
@@ -123,7 +123,7 @@ Examples of usage</h3>
   <div class='example'>
     This example shows that, if a location of a copy of target content is known, a developer can include the relationship between the target content and the copy. The relationship must be one of the keywords defined by <a>link type</a> or <a>HTML5 link type extension</a> definitions.
 
-    The memento <a>link type</a>, for example, is an extention which declares that the copy is "a fixed resource that will no longer change state."
+    The memento <a>link type</a>, for example, is an extension which declares that the copy is "a fixed resource that will no longer change state."
 
     <pre>
       &lt;a
@@ -150,7 +150,7 @@ Examples of usage</h3>
 Definitions</h2>
 
 	The following terms are used throughout this specification so they are
-	gathered here for the readers convenience. The following list of terms
+	gathered here for the reader's convenience. The following list of terms
 	is not exhaustive; other terms are defined throughout this
 	specification.
 
