@@ -153,11 +153,6 @@ Examples of usage</h3>
     </pre>
   </div>
 
-<h2 id='conformance'>
-Conformance</h2>
-
-  This specification is an HTML specification. All the conformance requirements, conformance classes, definitions, dependencies, terminology, and typographical conventions described in the core HTML5 specification apply to this specification. [[HTML5]]
-
 <h2 id='defs'>
 Definitions</h2>
 
