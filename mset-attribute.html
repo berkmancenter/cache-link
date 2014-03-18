@@ -602,9 +602,11 @@ Introduction</span><a class=self-link href=#intro></a></h2>
   <li>optionally, if the location is specified, the relationship of the copy to the target content</li>
 </ul>
 
-<p>  This is achieved by introducing <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> to HTML, as an attribute for the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to support specifying multiple copies of an external resource.
+<p>  This is achieved by introducing <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> to HTML, as an attribute for the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to support specifying multiple copies of an external resource. Copies can vary in presentation, format, and origin.
 
 <p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element ramains backwards compatible with legacy user agents which will ignore the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute.
+
+<p>  The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute differs significantly from the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element (which also relates documents to each other) in that the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute relates the target of the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to other documents where the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element relates the current document to other documents.
 
 <h3 class="heading settled heading" data-level=1.1 id=when-to-use><span class=secno>1.1 </span><span class=content>
 When to use <code>mset</code></span><a class=self-link href=#when-to-use></a></h3>
@@ -613,13 +615,25 @@ When to use <code>mset</code></span><a class=self-link href=#when-to-use></a></h
 
 <p>  If one ore more copies of the target content are known to exist, the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute should be used embed the locations of these copies into the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> attribute in the current document.
 
-<p>  The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute is not a replacement for the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute. When the original publish/reference date is unknown or there are no known copies of target content, developers should omit the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute.
+<p>  The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute is not a replacement for the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute. When the original date of reference is unknown or there are no known copies of target content, developers should omit the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute.
 
 <h3 class="heading settled heading" data-level=1.2 id=examples><span class=secno>1.2 </span><span class=content>
 Examples of usage</span><a class=self-link href=#examples></a></h3>
 
+<p>  The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute can be set to one or more [cache candidate string]s separated by "," (U+002C) characters. These examples show some (but not all) variations of the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute.
+
   <div class=example>
-    This example shows a basic usage of the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute to declare the location of a cached copy of external content.
+    This example shows the most basic usage of the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute to declare the date external content was referenced while authoring the current document. The locations of existing copies can be omitted.
+
+    <pre>  &lt;a
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    mset="2014-03-17"&gt;
+    HTML 2.0
+  &lt;/a&gt;
+</pre>  </div>
+
+  <div class=example>
+    This example shows a basic usage of the <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute to declare the location of a copy of target content. The date of reference while authoring the current document can be omitted, however, it is recommended.
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
@@ -629,7 +643,17 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 </pre>  </div>
 
   <div class=example>
-    This example shows pointing to more than one cached copy of external target content by separating multiple [cache candidate string]s with "," (U+002C) characters.
+    This example shows that both the date of reference and location of a copy can be used in the same <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute. They should be separated by a "," (U+002C) character.
+
+    <pre>  &lt;a
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    mset="2014-03-17, http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
+    HTML 2.0
+  &lt;/a&gt;
+</pre>  </div>
+
+  <div class=example>
+    This example shows pointing to more than one copy of external target content by separating multiple [cache candidate string]s with "," (U+002C) characters.
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
@@ -640,12 +664,36 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 </pre>  </div>
 
   <div class=example>
-    This example shows usage of the optional <a class=production data-link-type=propdesc href=#descdef-datetime title=datetime>&lt;‘datetime’&gt;</a> descriptor to declare the date the cached copy of the external content was made.
+    This example shows usage of the optional <a class=production data-link-type=propdesc href=#descdef-datetime title=datetime>&lt;‘datetime’&gt;</a> descriptor to declare the date the copy of the external content was made if it is known.
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
     mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
     http://perma.cc/RL33-W794 2014-03-10"&gt;
+    HTML 2.0
+  &lt;/a&gt;
+</pre>  </div>
+
+  <div class=example>
+    This example declares the date external content was reference as well as two copies and the dates those copies were made.
+
+    <pre>  &lt;a
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    mset="2014-03-17,
+    http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
+    http://perma.cc/RL33-W794 2014-03-10"&gt;
+    HTML 2.0
+  &lt;/a&gt;
+</pre>  </div>
+
+  <div class=example>
+    This example shows that, if a location of a copy of target content is known, a developer can include the relationship between the target content and the copy. The relationship must be one of the keywords defined by [link types] http://www.w3.org/TR/html5/links.html#linkTypes or [link type extensions] http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions.
+
+<p>    The memento link type, for example, is an extention that declares the copy is "a fixed resource that will no longer change state."
+
+    <pre>  &lt;a
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html memento"&gt;
     HTML 2.0
   &lt;/a&gt;
 </pre>  </div>
@@ -656,6 +704,10 @@ The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset<
   <pre class=attributedef>Name: <dfn class=idl-code data-dfn-for=a data-dfn-type=attribute data-export="" id=dom-a-mset>mset<a class=self-link href=#dom-a-mset></a></dfn>
 </pre>
 <p>  The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> attribute...
+
+<p><ul>
+  <li>either date of reference or location of copy</li>
+</ul>
 
 <h2 class="heading settled heading" data-level=3 id=the-datetime-descriptor><span class=secno>3 </span><span class=content>
 The <a class=css-code data-link-type=descriptor href=#descdef-datetime title=datetime>datetime</a> Descriptor</span><a class=self-link href=#the-datetime-descriptor></a></h2>
