@@ -101,7 +101,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[URL]] by a &quot; &quot; (U+0020) character.
+    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[!URL]] by a <a>space character</a>.
 
     <pre>
       &lt;a
@@ -166,6 +166,7 @@ Definitions</h2>
 	<dfn id="dfn-collect-a-sequence-of-characters">collect a sequence of characters</dfn>,
 	<dfn id="dfn-space-character">space character</dfn>,
 	<dfn id="dfn-split-a-string-on-spaces">split a string on spaces</dfn>,
+	<dfn id="dfn-hyperlink">hyperlink</dfn>,
 	<dfn id="dfn-datetime-value">datetime value</dfn>,
 	<dfn id="dfn-valid-non-empty-url">valid non-empty URL</dfn>,
 	and
@@ -174,15 +175,17 @@ Definitions</h2>
 <h2 id='the-a-element'>
 Additions to the <a element>a</a> Element</h2>
 
-  The <a element>a</a> element represents a hyperlink to other parts of the current document or a hyperlink to other documents.
-
-  A hyperlink is determined by the presence of a [[URL]] in the <a attribute>href</a> attribute.
+  The <a element>a</a> element (when an <a attribute>href</a> attribute is present) represents a <a>hyperlink</a> to other parts of the current document or a <a>hyperlink</a> to other documents.
 
 <h3 id='the-mset-attribute'>
 The <a attribute>mset</a> Attribute</h3>
 
-  <pre class='attributedef'>
-  Name: <dfn attribute for='a'>mset</dfn>
+  If the <a element>a</a> element is a <a>hyperlink</a>, the <a attribute>mset</a> attribute can also be present.
+
+  <pre class='idl'>
+    partial interface HTMLAnchorElement {
+      attribute DOMString mset;
+    };
   </pre>
 
   The <a attribute>mset</a> attribute...
