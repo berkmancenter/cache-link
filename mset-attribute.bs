@@ -21,15 +21,8 @@ Link Defaults: html5 (attribute) href
 <h2 id='intro'>
 Introduction</h2>
 
-  This specification provides developers with a means to declare:
+  This specification provides developers with a means to declare a <a>temporal reference</a> for a <a>hyperlink</a> and zero or more <a>copy link</a>s.
   
-<ul>
-  <li>the date at which target content of a hyperlink was referenced in the context of the time the current document, article or section was authored</li>
-  <li>the location of copies of the target content of a hyperlink and, optionally, the date the copy was made</li>
-  <li>both the temporal reference and location of a copy</li>
-  <li>optionally, if the location is specified, the relationship of the copy to the target content</li>
-</ul>
-
   This is achieved by introducing <a attribute>mset</a> to HTML, as an attribute for the <a element>a</a> element to support specifying dates and multiple copies of an external resource. Copies can vary in presentation, format, and origin.
 
   The <a element>a</a> element ramains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute.
@@ -48,7 +41,7 @@ When to use <code>mset</code></h3>
 <h3 id='examples'>
 Examples of usage</h3>
 
-  The <a attribute>mset</a> attribute can be set to one or more [cache candidate string]s separated by &quot;,&quot; (U+002C) characters. These examples show some (but not all) variations of the <a attribute>mset</a> attribute.
+  The <a attribute>mset</a> attribute can be set to one or more <a>reference candidate</a>s separated by &quot;,&quot; (U+002C) characters. These examples show some (but not all) variations of the <a attribute>mset</a> attribute.
 
   <div class='example'>
     This example shows the most basic usage of the <a attribute>mset</a> attribute to declare the date external content was referenced while authoring the current document. The locations of existing copies can be omitted.
@@ -88,7 +81,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows pointing to more than one copy of external target content by separating multiple [cache candidate string]s with &quot;,&quot; (U+002C) characters.
+    This example shows pointing to more than one copy of external target content by separating multiple <a>reference candidate</a>s with &quot;,&quot; (U+002C) characters.
 
     <pre>
       &lt;a
@@ -101,7 +94,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[!URL]] by a <a>space character</a>.
+    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[!URL]] by one ore more <a>space characters</a>.
 
     <pre>
       &lt;a
@@ -128,9 +121,9 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows that, if a location of a copy of target content is known, a developer can include the relationship between the target content and the copy. The relationship must be one of the keywords defined by [link types] http://www.w3.org/TR/html5/links.html#linkTypes or [link type extensions] http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions.
+    This example shows that, if a location of a copy of target content is known, a developer can include the relationship between the target content and the copy. The relationship must be one of the keywords defined by <a>link type</a> or <a>HTML5 link type extension</a> definitions.
 
-    The memento link type, for example, is an extention which declares that the copy is "a fixed resource that will no longer change state."
+    The memento <a>link type</a>, for example, is an extention which declares that the copy is "a fixed resource that will no longer change state."
 
     <pre>
       &lt;a
@@ -142,7 +135,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows that, if a location of a copy of target content is known, the date the copy of external content was made is known, and the relationship between the target content and the copy is known, a developer can include all three pieces of information in one [cache candidate string].
+    This example shows that, if a location of a copy of target content is known, the date the copy of external content was made is known, and the relationship between the target content and the copy is known, a developer can include all three pieces of information in one <a>reference candidate</a>.
 
     <pre>
       &lt;a
@@ -164,13 +157,15 @@ Definitions</h2>
 	The following terms are defined by the [[!HTML]] specification:
 	<dfn id="dfn-skip-whitespace">skip whitespace</dfn>,
 	<dfn id="dfn-collect-a-sequence-of-characters">collect a sequence of characters</dfn>,
-	<dfn id="dfn-space-character">space character</dfn>,
+	<dfn id="dfn-set-of-comma-separated-tokens">set of comma-separated tokens</dfn>,
+	<dfn id="dfn-space-character">space characters</dfn>,
 	<dfn id="dfn-split-a-string-on-spaces">split a string on spaces</dfn>,
 	<dfn id="dfn-hyperlink">hyperlink</dfn>,
 	<dfn id="dfn-datetime-value">datetime value</dfn>,
 	<dfn id="dfn-valid-non-empty-url">valid non-empty URL</dfn>,
+	<dfn id="dfn-link-type">link type</dfn>,
 	and
-	<dfn id="dfn-datetime-value">link types</dfn>.
+	<dfn id="dfn-html5-link-type-extension">HTML5 link type extension</dfn>.
 
 <h2 id='the-a-element'>
 Additions to the <a element>a</a> Element</h2>
@@ -180,19 +175,47 @@ Additions to the <a element>a</a> Element</h2>
 <h3 id='the-mset-attribute'>
 The <a attribute>mset</a> Attribute</h3>
 
-  If the <a element>a</a> element is a <a>hyperlink</a>, the <a attribute>mset</a> attribute can also be present.
-
   <pre class='idl'>
     partial interface HTMLAnchorElement {
       attribute DOMString mset;
     };
   </pre>
 
-  The <a attribute>mset</a> attribute...
+  If the <a element>a</a> element is a <a>hyperlink</a>, the <a attribute>mset</a> attribute can also be present. If present, its value must consist of one or more <a>reference candidate</a>s, each separated from the next by a &quot;,&quot; (U+002C) COMMA character. This attribute allows authors to provide a temporal context to the target content of a <a>hyperlink</a>, links to copies of the target content of a hyperlink, or both.
 
-<ul>
-  <li>either date of reference or location of copy</li>
-</ul>
+  The <a attribute>mset</a> attribute must be omitted if the <a attribute>href</a> attribute is not present.
+  
+  A <dfn export>reference candidate</dfn> declares one of two additional properties of the external resource of a <a>hyperlink</a>:
+  
+  <dl>
+    <dt><dfn export>temporal reference</dfn></dt>
+    <dd>The date at which the external resource was referenced in the context of when the current document, article, or section was authored.</dd>
+    
+    <dt><dfn export>copy link</dfn></dt>
+    <dd>The location of a copy of the content of the external resource.</dd>
+  </dl>
+
+  A <a>reference candidate</a> must not be both a <a>temporal reference</a> and a <a>copy link</a>.
+    
+  If the <a>reference candidate</a> is a <a>temporal reference</a>, it must consist of the following components, in order:
+
+<ol>
+  <li>Zero or more <a>space characters</a>.</li>
+  <li>A <a>datetime value</a> representing the date the external resource was referenced.</li>
+  <li>Zero or more <a>space characters</a>.</li>
+</ol>
+
+  If the <a>reference candidate</a> is a <a>copy link</a>, it must consist of the following components, in order:
+
+<ol>
+  <li>Zero or more <a>space characters</a>.</li>
+  <li>A <a>valid non-empty URL</a> referencing a copy of the content of the <a>hyperlink</a>'s external resource</li>
+  <li>Zero or more <a>space characters</a>.</li>
+  <li>Optionally, a <a>datetime value</a> representing the date at which the copy was made.</li>
+  <li>Zero or more <a>space characters</a>.</li>
+  <li>Optionally, a <a>link type</a> representing the relationship of between the external resource of the <a>hyperlink</a> and the copy specified in this <a>reference candidate</a>.</li>
+  <li>Zero or more <a>space characters</a>.</li>
+</ol>
 
 <h2 id='acks'>
 Acknowledgements</h2>
