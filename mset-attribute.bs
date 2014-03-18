@@ -6,7 +6,7 @@ ED: http://berkmancenter.github.io/cache-link/mset-attribute.html
 Shortname: mset-attribute
 Level: 1
 Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
-Abstract: The <code>mset</code> attribute intended to give authors a way to provide links to cached copies of the target content of a hyperlink.
+Abstract: The <code>mset</code> attribute intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
 Abstract: The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
 Link Defaults: html5 (element) a
 Link Defaults: html5 (attribute) href
@@ -21,16 +21,27 @@ Link Defaults: html5 (attribute) href
 <h2 id='intro'>
 Introduction</h2>
 
-  This specification provides developers with a means to declare the location of cached copies of the target content of a hyperlink. This is achieved by introducing <a attribute>mset</a> to HTML, as an attribute for the <a element>a</a> element to support specifying multiple cached copies of an external resource.
+  This specification provides developers with a means to declare:
+  
+<ul>
+  <li>the date at which target content of a hyperlink was referenced in the context of the time the current document, article or section was authored</li>
+  <li>the location of copies of the target content of a hyperlink</li>
+  <li>both the temporal reference and location of a copy</li>
+  <li>optionally, if the location is specified, the relationship of the copy to the target content</li>
+</ul>
+
+  This is achieved by introducing <a attribute>mset</a> to HTML, as an attribute for the <a element>a</a> element to support specifying multiple copies of an external resource.
 
   The <a element>a</a> element ramains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute.
 
 <h3 id='when-to-use'>
 When to use <code>mset</code></h3>
 
-  The <a attribute>mset</a> attribute should be used when a known cached copy of a hyperlink's target, external content exists on a [timegate server].
+  The <a attribute>mset</a> attribute can be used any time a publisher authors a document which references other content via hyperlinks. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.
 
-  The <a attribute>mset</a> attribute is not a replacement for the <a attribute>href</a> attribute. When there are no known cached copies of target content, developers should omit the <a attribute>mset</a> attribute.
+  If one ore more copies of the target content are known to exist, the <a attribute>mset</a> attribute should be used embed the locations of these copies into the <a element>a</a> attribute in the current document.
+
+  The <a attribute>mset</a> attribute is not a replacement for the <a attribute>href</a> attribute. When the original publish/reference date is unknown or there are no known copies of target content, developers should omit the <a attribute>mset</a> attribute.
 
 <h3 id='examples'>
 Examples of usage</h3>
