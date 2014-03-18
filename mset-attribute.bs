@@ -8,6 +8,8 @@ Level: 1
 Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
 Abstract: The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
 Abstract: The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
+!Version History: <a href="https://github.com/berkmancenter/cache-link/commits/gh-pages">Commit History</a>
+!Participate: <a href="https://github.com/berkmancenter/cache-link">Github</a>
 Link Defaults: html5 (element) a
 Link Defaults: html5 (attribute) href
 </pre>
@@ -220,4 +222,4 @@ The <a attribute>mset</a> Attribute</h3>
 <h2 id='acks'>
 Acknowledgements</h2>
 
-  A complete list of participants...
+  Contributions from: Ryan Westphal, Genève Bergeron, Herbert Van de Sompel, Jack Cushman, Michael Nelson
