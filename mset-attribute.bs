@@ -101,7 +101,7 @@ Examples of usage</h3>
   </div>
 
   <div class='example'>
-    This example shows usage of the optional <<'datetime'>> descriptor to declare the date the copy of the external content was made if it is known. <<'datetime'>> descriptors are separated from the copy [[URL]] by a &quot; &quot; (U+0020) character.
+    This example shows usage of the optional <a>datetime value</a> to declare the date the copy of the external content was made if it is known. <a>datetime value</a> are separated from the copy [[URL]] by a &quot; &quot; (U+0020) character.
 
     <pre>
       &lt;a
@@ -158,10 +158,33 @@ Conformance</h2>
 
   This specification is an HTML specification. All the conformance requirements, conformance classes, definitions, dependencies, terminology, and typographical conventions described in the core HTML5 specification apply to this specification. [[HTML5]]
 
-  Interfaces are defined in terms of Web IDL. [[WEBIDL]]
+<h2 id='defs'>
+Definitions</h2>
 
-<h2 id='the-mset-attribute'>
-The <a attribute>mset</a> Attribute</h2>
+	The following terms are used throughout this specification so they are
+	gathered here for the readers convenience. The following list of terms
+	is not exhaustive; other terms are defined throughout this
+	specification.
+
+	The following terms are defined by the [[!HTML]] specification:
+	<dfn id="dfn-skip-whitespace">skip whitespace</dfn>,
+	<dfn id="dfn-collect-a-sequence-of-characters">collect a sequence of characters</dfn>,
+	<dfn id="dfn-space-character">space character</dfn>,
+	<dfn id="dfn-split-a-string-on-spaces">split a string on spaces</dfn>,
+	<dfn id="dfn-datetime-value">datetime value</dfn>,
+	<dfn id="dfn-valid-non-empty-url">valid non-empty URL</dfn>,
+	and
+	<dfn id="dfn-datetime-value">link types</dfn>.
+
+<h2 id='the-a-element'>
+Additions to the <a element>a</a> Element</h2>
+
+  The <a element>a</a> element represents a hyperlink to other parts of the current document or a hyperlink to other documents.
+
+  A hyperlink is determined by the presence of a [[URL]] in the <a attribute>href</a> attribute.
+
+<h3 id='the-mset-attribute'>
+The <a attribute>mset</a> Attribute</h3>
 
   <pre class='attributedef'>
   Name: <dfn attribute for='a'>mset</dfn>
@@ -172,21 +195,6 @@ The <a attribute>mset</a> Attribute</h2>
 <ul>
   <li>either date of reference or location of copy</li>
 </ul>
-
-<h2 id='the-datetime-descriptor'>
-The <a descriptor>datetime</a> Descriptor</h2>
-
-  <pre class='descriptordef'>
-  Name: <dfn descriptor for='mset'>datetime</dfn>
-  </pre>
-
-  The <a descriptor>datetime</a> descriptor...
-
-
-<h2 id='the-a-element'>
-Additions to the <a element>a</a> Element</h2>
-
-  The <a element>a</a> element...
 
 <h2 id='acks'>
 Acknowledgements</h2>

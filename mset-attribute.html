@@ -577,10 +577,11 @@ Parts of this work may be from another specification document.  If so, those par
 		<li><a href=#when-to-use><span class=secno>1.1</span> When to use <code>mset</code></a>
 		<li><a href=#examples><span class=secno>1.2</span> Examples of usage</a></ul>
 	<li><a href=#conformance0><span class=secno>2</span> Conformance</a>
-	<li><a href=#the-mset-attribute><span class=secno>3</span> The <span data-link-type=attribute title=mset>mset</span> Attribute</a>
-	<li><a href=#the-datetime-descriptor><span class=secno>4</span> The <span data-link-type=descriptor title=datetime>datetime</span> Descriptor</a>
-	<li><a href=#the-a-element><span class=secno>5</span> Additions to the <span data-link-type=element title=a>a</span> Element</a>
-	<li><a href=#acks><span class=secno>6</span> Acknowledgements</a>
+	<li><a href=#defs><span class=secno>3</span> Definitions</a>
+	<li><a href=#the-a-element><span class=secno>4</span> Additions to the <span data-link-type=element title=a>a</span> Element</a>
+		<ul class=toc>
+		<li><a href=#the-mset-attribute><span class=secno>4.1</span> The <span data-link-type=attribute title=mset>mset</span> Attribute</a></ul>
+	<li><a href=#acks><span class=secno>5</span> Acknowledgements</a>
 	<li><a href=#conformance><span class=secno></span> Conformance</a>
 	<li><a href=#references><span class=secno></span> References</a>
 		<ul class=toc>
@@ -666,7 +667,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 </pre>  </div>
 
   <div class=example>
-    This example shows usage of the optional <a class=production data-link-type=propdesc href=#descdef-datetime title=datetime>&lt;‘datetime’&gt;</a> descriptor to declare the date the copy of the external content was made if it is known. <a class=production data-link-type=propdesc href=#descdef-datetime title=datetime>&lt;‘datetime’&gt;</a> descriptors are separated from the copy <a data-biblio-type=informative data-link-type=biblio href=#url title=url>[URL]</a> by a " " (U+0020) character.
+    This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value0 title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. &lt;&lt;'datetime value'&gt;&gt; are separated from the copy <a data-biblio-type=informative data-link-type=biblio href=#url title=url>[URL]</a> by a " " (U+0020) character.
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
@@ -715,10 +716,33 @@ Conformance</span><a class=self-link href=#conformance0></a></h2>
 
 <p>  This specification is an HTML specification. All the conformance requirements, conformance classes, definitions, dependencies, terminology, and typographical conventions described in the core HTML5 specification apply to this specification. <a data-biblio-type=informative data-link-type=biblio href=#html5 title=html5>[HTML5]</a>
 
-<p>  Interfaces are defined in terms of Web IDL. <a data-biblio-type=informative data-link-type=biblio href=#webidl title=webidl>[WEBIDL]</a>
+<h2 class="heading settled heading" data-level=3 id=defs><span class=secno>3 </span><span class=content>
+Definitions</span><a class=self-link href=#defs></a></h2>
 
-<h2 class="heading settled heading" data-level=3 id=the-mset-attribute><span class=secno>3 </span><span class=content>
-The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> Attribute</span><a class=self-link href=#the-mset-attribute></a></h2>
+<p>	The following terms are used throughout this specification so they are
+	gathered here for the readers convenience. The following list of terms
+	is not exhaustive; other terms are defined throughout this
+	specification.
+
+<p>	The following terms are defined by the <a data-biblio-type=normative data-link-type=biblio href=#html title=html>[HTML]</a> specification:
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-skip-whitespace>skip whitespace<a class=self-link href=#dfn-skip-whitespace></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-collect-a-sequence-of-characters>collect a sequence of characters<a class=self-link href=#dfn-collect-a-sequence-of-characters></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-space-character>space character<a class=self-link href=#dfn-space-character></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-split-a-string-on-spaces>split a string on spaces<a class=self-link href=#dfn-split-a-string-on-spaces></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-datetime-value0>datetime value<a class=self-link href=#dfn-datetime-value0></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-valid-non-empty-url>valid non-empty URL<a class=self-link href=#dfn-valid-non-empty-url></a></dfn>,
+	and
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-datetime-value>link types<a class=self-link href=#dfn-datetime-value></a></dfn>.
+
+<h2 class="heading settled heading" data-level=4 id=the-a-element><span class=secno>4 </span><span class=content>
+Additions to the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> Element</span><a class=self-link href=#the-a-element></a></h2>
+
+<p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element represents a hyperlink to other parts of the current document or a hyperlink to other documents.
+
+<p>  A hyperlink is determined by the presence of a <a data-biblio-type=informative data-link-type=biblio href=#url title=url>[URL]</a> in the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute.
+
+<h3 class="heading settled heading" data-level=4.1 id=the-mset-attribute><span class=secno>4.1 </span><span class=content>
+The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset</a> Attribute</span><a class=self-link href=#the-mset-attribute></a></h3>
 
   <pre class=attributedef>Name: <dfn class=idl-code data-dfn-for=a data-dfn-type=attribute data-export="" id=dom-a-mset>mset<a class=self-link href=#dom-a-mset></a></dfn>
 </pre>
@@ -728,20 +752,7 @@ The <a class=idl-code data-link-type=attribute href=#dom-a-mset title=mset>mset<
   <li>either date of reference or location of copy</li>
 </ul>
 
-<h2 class="heading settled heading" data-level=4 id=the-datetime-descriptor><span class=secno>4 </span><span class=content>
-The <a class=css-code data-link-type=descriptor href=#descdef-datetime title=datetime>datetime</a> Descriptor</span><a class=self-link href=#the-datetime-descriptor></a></h2>
-
-  <pre class=descriptordef>Name: <dfn class=css-code data-dfn-for=mset data-dfn-type=descriptor data-export="" id=descdef-datetime>datetime<a class=self-link href=#descdef-datetime></a></dfn>
-</pre>
-<p>  The <a class=css-code data-link-type=descriptor href=#descdef-datetime title=datetime>datetime</a> descriptor...
-
-
-<h2 class="heading settled heading" data-level=5 id=the-a-element><span class=secno>5 </span><span class=content>
-Additions to the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> Element</span><a class=self-link href=#the-a-element></a></h2>
-
-<p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element...
-
-<h2 class="heading settled heading" data-level=6 id=acks><span class=secno>6 </span><span class=content>
+<h2 class="heading settled heading" data-level=5 id=acks><span class=secno>5 </span><span class=content>
 Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
 <p>  A complete list of participants...
@@ -781,17 +792,23 @@ References</span><a class=self-link href=#references></a></h2>
 
 <h3 class="no-num no-ref heading settled heading" id=normative><span class=content>
 Normative References</span><a class=self-link href=#normative></a></h3>
-<div data-fill-with=normative-references><dl><dt id=rfc2119 title=RFC2119><a class=self-link href=#rfc2119></a>[RFC2119]<dd>S. Bradner. <a href=http://www.ietf.org/rfc/rfc2119.txt>Key words for use in RFCs to Indicate Requirement Levels</a>. URL: <a href=http://www.ietf.org/rfc/rfc2119.txt>http://www.ietf.org/rfc/rfc2119.txt</a></dl></div>
+<div data-fill-with=normative-references><dl><dt id=html title=HTML><a class=self-link href=#html></a>[HTML]<dd>Ian Hickson. <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>HTML</a>. Living Standard. URL: <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>http://www.whatwg.org/specs/web-apps/current-work/multipage/</a><dt id=rfc2119 title=RFC2119><a class=self-link href=#rfc2119></a>[RFC2119]<dd>S. Bradner. <a href=http://www.ietf.org/rfc/rfc2119.txt>Key words for use in RFCs to Indicate Requirement Levels</a>. URL: <a href=http://www.ietf.org/rfc/rfc2119.txt>http://www.ietf.org/rfc/rfc2119.txt</a></dl></div>
 
 <h3 class="no-num no-ref heading settled heading" id=informative><span class=content>
 Informative References</span><a class=self-link href=#informative></a></h3>
-<div data-fill-with=informative-references><dl><dt id=html5 title=HTML5><a class=self-link href=#html5></a>[HTML5]<dd>Robin Berjon; et al. <a href=http://www.w3.org/TR/2013/CR-html5-20130806/>HTML5</a>. 6 August 2013. W3C Candidate Recommendation. (Work in progress.) URL: <a href=http://www.w3.org/TR/2013/CR-html5-20130806/>http://www.w3.org/TR/2013/CR-html5-20130806/</a><dt id=url title=URL><a class=self-link href=#url></a>[URL]<dd>Erik Arvidsson; Michael. <a href=http://www.w3.org/TR/2012/WD-url-20120524/>URL</a>. 24 May 2012. W3C Working Draft. (Work in progress.) URL: <a href=http://www.w3.org/TR/2012/WD-url-20120524/>http://www.w3.org/TR/2012/WD-url-20120524/</a><dt id=webidl title=WEBIDL><a class=self-link href=#webidl></a>[WEBIDL]<dd>Cameron McCormack. <a href=http://www.w3.org/TR/2012/CR-WebIDL-20120419/>Web IDL</a>. 19 April 2012. W3C Candidate Recommendation. (Work in progress.) URL: <a href=http://www.w3.org/TR/2012/CR-WebIDL-20120419/>http://www.w3.org/TR/2012/CR-WebIDL-20120419/</a></dl></div>
+<div data-fill-with=informative-references><dl><dt id=html5 title=HTML5><a class=self-link href=#html5></a>[HTML5]<dd>Robin Berjon; et al. <a href=http://www.w3.org/TR/2013/CR-html5-20130806/>HTML5</a>. 6 August 2013. W3C Candidate Recommendation. (Work in progress.) URL: <a href=http://www.w3.org/TR/2013/CR-html5-20130806/>http://www.w3.org/TR/2013/CR-html5-20130806/</a><dt id=url title=URL><a class=self-link href=#url></a>[URL]<dd>Erik Arvidsson; Michael. <a href=http://www.w3.org/TR/2012/WD-url-20120524/>URL</a>. 24 May 2012. W3C Working Draft. (Work in progress.) URL: <a href=http://www.w3.org/TR/2012/WD-url-20120524/>http://www.w3.org/TR/2012/WD-url-20120524/</a></dl></div>
 
 <h2 class="no-num no-ref heading settled heading" id=index><span class=content>
 Index</span><a class=self-link href=#index></a></h2>
 <div data-fill-with=index><ul class=indexlist>
-<li>datetime, <a href=#descdef-datetime title="section 4">4</a>
-<li>mset, <a href=#dom-a-mset title="section 3">3</a>
+<li>collect a sequence of characters, <a href=#dfn-collect-a-sequence-of-characters title="section 3">3</a>
+<li>datetime value, <a href=#dfn-datetime-value0 title="section 3">3</a>
+<li>link types, <a href=#dfn-datetime-value title="section 3">3</a>
+<li>mset, <a href=#dom-a-mset title="section 4.1">4.1</a>
+<li>skip whitespace, <a href=#dfn-skip-whitespace title="section 3">3</a>
+<li>space character, <a href=#dfn-space-character title="section 3">3</a>
+<li>split a string on spaces, <a href=#dfn-split-a-string-on-spaces title="section 3">3</a>
+<li>valid non-empty URL, <a href=#dfn-valid-non-empty-url title="section 3">3</a>
 </ul></div>
 
 <h2 class="no-num no-ref heading settled heading" id=property-index><span class=content>
