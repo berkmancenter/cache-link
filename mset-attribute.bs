@@ -7,7 +7,7 @@ Shortname: mset-attribute
 Level: 1
 Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
 Abstract: The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
-Abstract: The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
+Abstract: The primary purpose of the <code>mset</code> attribute is to address [Internet censorship], [link rot], [content drift], and [denial-of-service attack]s.
 !Version History: <a href="https://github.com/berkmancenter/cache-link/commits/gh-pages">Commit History</a>
 !Participate: <a href="https://cyber.law.harvard.edu/lists/info/link-standards">Public mailing list</a>
 !Participate: <a href="https://github.com/berkmancenter/cache-link">Github</a>
@@ -32,7 +32,7 @@ Introduction</h2>
 
   The presence of the <a attribute>mset</a> attribute does not affect the default user agent behavior for navigating a <a>hyperlink</a>.
 
-  The <a attribute>mset</a> attribute differs significantly from the <a element>link</a> element (which also relates documents to each other) in that the <a attribute>mset</a> attribute relates the target of the <a element>a</a> element to other documents where the <a element>link</a> element relates the current document to other documents.
+  The <a attribute>mset</a> attribute differs significantly from the <a element>link</a> element (which also relates documents to one another) in that the <a attribute>mset</a> attribute relates the target of the <a element>a</a> element to other documents where the <a element>link</a> element relates the current document to other documents.
 
 <h3 id='when-to-use'>
 When to use <code>mset</code></h3>
