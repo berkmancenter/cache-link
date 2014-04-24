@@ -30,12 +30,14 @@ Introduction</h2>
 
   The <a element>a</a> element remains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute.
 
+  The presence of the <a attribute>mset</a> attribute does not affect the default user agent behavior for navigating a <a>hyperlink</a>.
+
   The <a attribute>mset</a> attribute differs significantly from the <a element>link</a> element (which also relates documents to each other) in that the <a attribute>mset</a> attribute relates the target of the <a element>a</a> element to other documents where the <a element>link</a> element relates the current document to other documents.
 
 <h3 id='when-to-use'>
 When to use <code>mset</code></h3>
 
-  The <a attribute>mset</a> attribute can be used any time a publisher authors a document which references other content via hyperlinks. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.
+  The <a attribute>mset</a> attribute can be used any time a publisher authors a document which references other content via <a>hyperlink</a>s. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.
 
   If one or more copies of the target content are known to exist, the <a attribute>mset</a> attribute should be used embed the locations of these copies into the <a element>a</a> element in the current document.
 
