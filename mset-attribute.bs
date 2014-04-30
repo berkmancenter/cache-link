@@ -28,9 +28,7 @@ Introduction</h2>
   
   This is achieved by introducing <a attribute>mset</a> to HTML, as an attribute for the <a element>a</a> element to support specifying dates and multiple copies of an external resource. Copies can vary in presentation, format, and origin.
 
-  The <a element>a</a> element remains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute.
-
-  The presence of the <a attribute>mset</a> attribute does not affect the default user agent behavior for navigating a <a>hyperlink</a>.
+  The <a element>a</a> element remains backwards compatible with legacy user agents which will ignore the <a attribute>mset</a> attribute. The presence of the <a attribute>mset</a> attribute does not affect the default user agent behavior for navigating a <a>hyperlink</a>.
 
   The <a attribute>mset</a> attribute differs significantly from the <a element>link</a> element (which also relates documents to one another) in that the <a attribute>mset</a> attribute relates the target of the <a element>a</a> element to other documents where the <a element>link</a> element relates the current document to other documents.
 
@@ -160,17 +158,25 @@ Definitions</h2>
 	specification.
 
 	The following terms are defined by the [[!HTML]] specification:
+
 	<dfn id="dfn-skip-whitespace">skip whitespace</dfn>,
 	<dfn id="dfn-collect-a-sequence-of-characters">collect a sequence of characters</dfn>,
 	<dfn id="dfn-set-of-comma-separated-tokens">set of comma-separated tokens</dfn>,
 	<dfn id="dfn-space-character">space characters</dfn>,
 	<dfn id="dfn-split-a-string-on-spaces">split a string on spaces</dfn>,
 	<dfn id="dfn-hyperlink">hyperlink</dfn>,
+	<dfn id="dfn-following-hyperlinks">Following hyperlinks</dfn>,
 	<dfn id="dfn-datetime-value">datetime value</dfn>,
 	<dfn id="dfn-valid-non-empty-url">valid non-empty URL</dfn>,
 	<dfn id="dfn-link-type">link type</dfn>,
+	<dfn id="dfn-html5-link-type-extension">HTML5 link type extension</dfn>,
+	<dfn id="dfn-context-menus">Context menus</dfn>,
+	<dfn id="dfn-menu" element>menu</dfn> element,
+	<dfn id="dfn-event-contextmenu" event for="menu">contextmenu</dfn> event,
+	<dfn id="dfn-event-show" event for="menu">show</dfn> event,
+	<dfn id="dfn-contextmenu" attribute for="a">contextmenu</dfn> attribute,
 	and
-	<dfn id="dfn-html5-link-type-extension">HTML5 link type extension</dfn>.
+	<dfn id="dfn-show">show</dfn>.
 
 <h2 id='the-a-element'>
 Additions to the <a element>a</a> Element</h2>
@@ -221,6 +227,34 @@ The <a attribute>mset</a> Attribute</h3>
   <li>Optionally, a <a>link type</a> representing the relationship of between the external resource of the <a>hyperlink</a> and the copy specified in this <a>reference candidate</a>.</li>
   <li>Zero or more <a>space characters</a>.</li>
 </ol>
+
+<h2 id='processing-model'>
+Processing model</h2>
+
+<h3 id='default-hyperlink-behavior'>
+  Default hyperlink behavior</h3>
+
+  The presence of the <a attribute>mset</a> attribute must not affect the default user agent behavior described in <a>Following hyperlinks</a>.
+
+<h3 id='relationship-to-contextmenu'>
+  Relationship to the <a event>contextmenu</a> event and the <a attribute>contextmenu</a> attribute</h3>
+
+  When a user right-clicks on an <a element>a</a> element with an <a attribute>mset</a> attribute, the user agent must first perform the following actions:
+
+  <ol>
+    <li>fire a <a event>contextmenu</a> event at the element, and then</li>
+    <li>if that event is not canceled and the <a element>a</a> element has a <a attribute>contextmenu</a> attribute, fire a <a event>show</a> event at the corresponding <a element>menu</a> element as described in <a>Context menus</a></li>
+  </ol>
+
+<h3 id='primary-behavior'>
+  Suggested primary user agent behavior</h3>
+
+  Display &quot;Open copy of link content&quot; in context menu.
+
+<h3 id='secondary-behavior'>
+  Suggested secondary user agent behavior</h3>
+
+  List <a>copy link</a>s on browser &quot;page not available&quot; screen.
 
 <h2 id='acks'>
 Acknowledgements</h2>
