@@ -238,18 +238,6 @@ Processing model</h2>
 
   For example, following a <a>hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server's 404 page if one exists.
 
-<h3 id='relationship-to-contextmenu'>
-  Relationship to the <a event>contextmenu</a> event and the <a attribute>contextmenu</a> attribute</h3>
-
-  When a user right-clicks on an <a element>a</a> element with an <a attribute>mset</a> attribute, the user agent must first perform the following actions:
-
-  <ol>
-    <li>fire a <a event>contextmenu</a> event at the element, and then</li>
-    <li>if that event is not canceled and the <a element>a</a> element has a <a attribute>contextmenu</a> attribute, fire a <a event>show</a> event at the corresponding <a element>menu</a> element as described in <a>Context menus</a></li>
-  </ol>
-
-  If the <a event>contextmenu</a> event is not canceled and the <a element>a</a> element does not have a <a attribute>contextmenu</a> attribute, then the user agent should display its own context menu for <a>hyperlink</a>s.
-
 <h3 id='primary-behavior'>
   Suggested primary user agent behavior</h3>
 
@@ -258,6 +246,18 @@ Processing model</h2>
   In the case where, after following a <a>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent should provide access to additional hyperlinks should the user go back and look for them.
 
   Display &quot;Open copy of link content&quot; in context menu.
+
+<h4 id='relationship-to-contextmenu'>
+  Relationship to the <a event>contextmenu</a> event and the <a attribute>contextmenu</a> attribute</h4>
+
+  When a user right-clicks on an <a element>a</a> element with an <a attribute>mset</a> attribute, the user agent must first perform the following actions:
+
+  <ol>
+    <li>fire a <a event>contextmenu</a> event at the element, and then</li>
+    <li>if that event is not canceled and the <a element>a</a> element has a <a attribute>contextmenu</a> attribute, fire a <a event>show</a> event at the corresponding <a element>menu</a> element as described in <a>Context menus</a></li>
+  </ol>
+
+  If the <a event>contextmenu</a> event is not canceled and the <a element>a</a> element does not have a <a attribute>contextmenu</a> attribute, then the user agent should display its own context menu for the <a>hyperlink</a> and should include the suggested primary behavior described above.
 
 <h3 id='secondary-behavior'>
   Suggested secondary user agent behavior</h3>

@@ -583,9 +583,10 @@ Parts of this work may be from another specification document.  If so, those par
 	<li><a href=#processing-model><span class=secno>4</span> Processing model</a>
 		<ul class=toc>
 		<li><a href=#default-hyperlink-behavior><span class=secno>4.1</span>   Default hyperlink behavior</a>
-		<li><a href=#relationship-to-contextmenu><span class=secno>4.2</span>   Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a>
-		<li><a href=#primary-behavior><span class=secno>4.3</span>   Suggested primary user agent behavior</a>
-		<li><a href=#secondary-behavior><span class=secno>4.4</span>   Suggested secondary user agent behavior</a></ul>
+		<li><a href=#primary-behavior><span class=secno>4.2</span>   Suggested primary user agent behavior</a>
+			<ul class=toc>
+			<li><a href=#relationship-to-contextmenu><span class=secno>4.2.1</span>   Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a></ul>
+		<li><a href=#secondary-behavior><span class=secno>4.3</span>   Suggested secondary user agent behavior</a></ul>
 	<li><a href=#acks><span class=secno>5</span> Acknowledgements</a>
 	<li><a href=#conformance><span class=secno></span> Conformance</a>
 	<li><a href=#references><span class=secno></span> References</a>
@@ -806,19 +807,7 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 
 <p>For example, following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server’s 404 page if one exists.</p>
 
-<h3 class="heading settled heading" data-level=4.2 id=relationship-to-contextmenu><span class=secno>4.2 </span><span class=content>
-  Relationship to the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event and the <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute</span><a class=self-link href=#relationship-to-contextmenu></a></h3>
-
-<p>When a user right-clicks on an <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element with an <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute, the user agent must first perform the following actions:</p>
-
-  <ol>
-    <li>fire a <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event at the element, and then</li>
-    <li>if that event is not canceled and the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element has a <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute, fire a <a class=idl-code data-link-type=event href=#dfn-event-show title=show>show</a> event at the corresponding <a data-link-type=element href=#dfn-menu title=menu>menu</a> element as described in <a data-link-type=dfn href=#dfn-context-menus title="context menus">Context menus</a></li>
-  </ol>
-
-<p>If the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event is not canceled and the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element does not have a <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute, then the user agent should display its own context menu for <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>s.</p>
-
-<h3 class="heading settled heading" data-level=4.3 id=primary-behavior><span class=secno>4.3 </span><span class=content>
+<h3 class="heading settled heading" data-level=4.2 id=primary-behavior><span class=secno>4.2 </span><span class=content>
   Suggested primary user agent behavior</span><a class=self-link href=#primary-behavior></a></h3>
 
 <p>This spec defines a method for including additional references to copies of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>’s target content and giving users access to these references.</p>
@@ -827,7 +816,19 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 
 <p>Display "Open copy of link content" in context menu.</p>
 
-<h3 class="heading settled heading" data-level=4.4 id=secondary-behavior><span class=secno>4.4 </span><span class=content>
+<h4 class="heading settled heading" data-level=4.2.1 id=relationship-to-contextmenu><span class=secno>4.2.1 </span><span class=content>
+  Relationship to the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event and the <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute</span><a class=self-link href=#relationship-to-contextmenu></a></h4>
+
+<p>When a user right-clicks on an <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element with an <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute, the user agent must first perform the following actions:</p>
+
+  <ol>
+    <li>fire a <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event at the element, and then</li>
+    <li>if that event is not canceled and the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element has a <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute, fire a <a class=idl-code data-link-type=event href=#dfn-event-show title=show>show</a> event at the corresponding <a data-link-type=element href=#dfn-menu title=menu>menu</a> element as described in <a data-link-type=dfn href=#dfn-context-menus title="context menus">Context menus</a></li>
+  </ol>
+
+<p>If the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event is not canceled and the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element does not have a <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute, then the user agent should display its own context menu for the <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> and should include the suggested primary behavior described above.</p>
+
+<h3 class="heading settled heading" data-level=4.3 id=secondary-behavior><span class=secno>4.3 </span><span class=content>
   Suggested secondary user agent behavior</span><a class=self-link href=#secondary-behavior></a></h3>
 
 <p>List <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>s on browser "page not available" screen.</p>
