@@ -231,7 +231,7 @@ The <a attribute>mset</a> Attribute</h3>
 <h2 id='processing-model'>
 Processing model</h2>
 
-  This spec defines a method for including additional references to copies of a <a>hyperlink</a>'s target content. Providing user access to these references is not defined by this specification. However, the following sections suggest behaviors user agents can adopt to make the references discoverable.
+  This spec defines a method for including additional references to copies of a <a>hyperlink</a>'s target content. Providing a user access to these references is not defined by this specification. However, this section suggests behaviors which user agents can choose to adopt to make the references discoverable.
 
 <h3 id='default-hyperlink-behavior'>
   Default hyperlink behavior</h3>
@@ -244,6 +244,14 @@ Processing model</h2>
   Suggested primary user agent behavior</h3>
 
   In the case where, after following a <a>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.
+
+  A user agent can reveal additional references in a new context menu item titled, e.g., Open cached copy of link. The menu item can expand to list each <a>copy link</a> and, if provided in the <a attribute>mset</a> attribute, the date on which the copy was made. 
+
+  <figure>
+    <img src="images/mset-primary.png" />
+    <figcaption>Primary user agent behavior, context menu listing mset references</figcaption>
+  </figure>
+
 
 <h4 id='open-copy'>
   Context menu item</h4>
