@@ -549,14 +549,14 @@ span.issue, span.note {
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The mset Attribute</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140318>18 March 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140512>12 May 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Editor’s Draft:<dd><a href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Test Suite:<dd>None Yet<dt>Editors:
-<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://cyber.law.harvard.edu>Ryan Westphal</a> (<span class="p-org org">Berkman Center for Internet and Society</span>)<dt>Version History:<dd><a href=https://github.com/berkmancenter/cache-link/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=https://github.com/berkmancenter/cache-link>Github</a></dl></div>
+<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://cyber.law.harvard.edu>Ryan Westphal</a> (<span class="p-org org">Berkman Center for Internet and Society</span>)<dt>Version History:<dd><a href=https://github.com/berkmancenter/cache-link/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=https://cyber.law.harvard.edu/lists/info/link-standards>Public mailing list</a><dd><a href=https://github.com/berkmancenter/cache-link>Github</a></dl></div>
   <div data-fill-with=warning></div>
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 18 March 2014,
+In addition, as of 12 May 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -566,7 +566,7 @@ Parts of this work may be from another specification document.  If so, those par
 </div>
 
 <h2 class="no-num no-toc no-ref heading settled heading" id=abstract><span class=content>Abstract</span></h2>
-<p class=p-summary data-fill-with=abstract>The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.<p>The primary purpose of the <code>mset</code> attribute is to address [Internet censorship] and [link rot].
+<p class=p-summary data-fill-with=abstract>The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.<p>The primary purpose of the <code>mset</code> attribute is to address [Internet censorship], [link rot], [content drift], and [denial-of-service attack]s.
 </p>
 <div data-fill-with=at-risk></div>
 
@@ -580,7 +580,15 @@ Parts of this work may be from another specification document.  If so, those par
 	<li><a href=#the-a-element><span class=secno>3</span> Additions to the <span data-link-type=element title=a>a</span> Element</a>
 		<ul class=toc>
 		<li><a href=#the-mset-attribute><span class=secno>3.1</span> The <span data-link-type=attribute title=mset>mset</span> Attribute</a></ul>
-	<li><a href=#acks><span class=secno>4</span> Acknowledgements</a>
+	<li><a href=#processing-model><span class=secno>4</span> Processing model</a>
+		<ul class=toc>
+		<li><a href=#default-hyperlink-behavior><span class=secno>4.1</span>   Default hyperlink behavior</a>
+		<li><a href=#primary-behavior><span class=secno>4.2</span>   Suggested primary user agent behavior</a>
+			<ul class=toc>
+			<li><a href=#open-copy><span class=secno>4.2.1</span>   Context menu item</a>
+			<li><a href=#relationship-to-contextmenu><span class=secno>4.2.2</span>   Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a></ul>
+		<li><a href=#secondary-behavior><span class=secno>4.3</span>   Suggested secondary user agent behavior</a></ul>
+	<li><a href=#acks><span class=secno>5</span> Acknowledgements</a>
 	<li><a href=#conformance><span class=secno></span> Conformance</a>
 	<li><a href=#references><span class=secno></span> References</a>
 		<ul class=toc>
@@ -591,30 +599,31 @@ Parts of this work may be from another specification document.  If so, those par
 
 
 
+
 <h2 class="heading settled heading" data-level=1 id=intro><span class=secno>1 </span><span class=content>
 Introduction</span><a class=self-link href=#intro></a></h2>
 
-<p>  This specification provides developers with a means to declare a <a data-link-type=dfn href=#temporal-reference title="temporal reference">temporal reference</a> for a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> and zero or more <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>s.
-  
-<p>  This is achieved by introducing <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> to HTML, as an attribute for the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to support specifying dates and multiple copies of an external resource. Copies can vary in presentation, format, and origin.
+<p>This specification provides developers with a means to declare a <a data-link-type=dfn href=#temporal-reference title="temporal reference">temporal reference</a> for a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> and zero or more <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>s.</p>
 
-<p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element remains backwards compatible with legacy user agents which will ignore the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.
+<p>This is achieved by introducing <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> to HTML, as an attribute for the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to support specifying dates and multiple copies of an external resource. Copies can vary in presentation, format, and origin.</p>
 
-<p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute differs significantly from the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element (which also relates documents to each other) in that the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute relates the target of the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to other documents where the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element relates the current document to other documents.
+<p>The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element remains backwards compatible with legacy user agents which will ignore the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute. The presence of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute does not affect the default user agent behavior for navigating a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>.</p>
+
+<p>The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute differs significantly from the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element (which also relates documents to one another) in that the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute relates the target of the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element to other documents where the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#the-link-element title=link>link</a> element relates the current document to other documents.</p>
 
 <h3 class="heading settled heading" data-level=1.1 id=when-to-use><span class=secno>1.1 </span><span class=content>
 When to use <code>mset</code></span><a class=self-link href=#when-to-use></a></h3>
 
-<p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can be used any time a publisher authors a document which references other content via hyperlinks. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.
+<p>The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can be used any time a publisher authors a document which references other content via <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>s. At its most basic, the publisher can provide only the date when target content was referenced while authoring a document.</p>
 
-<p>  If one or more copies of the target content are known to exist, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute should be used embed the locations of these copies into the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element in the current document.
+<p>If one or more copies of the target content are known to exist, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute should be used embed the locations of these copies into the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element in the current document.</p>
 
-<p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute is not a replacement for the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute. When the original date of reference is unknown and there are no known copies of target content, developers should omit the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.
+<p>The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute is not a replacement for the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute. When the original date of reference is unknown and there are no known copies of target content, developers should omit the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.</p>
 
 <h3 class="heading settled heading" data-level=1.2 id=examples><span class=secno>1.2 </span><span class=content>
 Examples of usage</span><a class=self-link href=#examples></a></h3>
 
-<p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can be set to one or more <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s separated by "," (U+002C) characters. These examples show some (but not all) variations of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.
+<p>The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can be set to one or more <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s separated by "," (U+002C) characters. These examples show some (but not all) variations of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute.</p>
 
   <div class=example>
     This example shows the most basic usage of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute to declare the date external content was referenced while authoring the current document. The locations of existing copies can be omitted.
@@ -624,7 +633,8 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     mset="2014-03-17"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example shows a basic usage of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute to declare the location of a copy of target content. The date of reference while authoring the current document can be omitted, however, it is recommended.
@@ -634,7 +644,8 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example shows that both the date of reference and location of a copy can be used in the same <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute. They should be separated by a "," (U+002C) character.
@@ -645,7 +656,8 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
       http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example shows pointing to more than one copy of external target content by separating multiple <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s with "," (U+002C) characters.
@@ -656,7 +668,8 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
       http://perma.cc/RL33-W794"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> are separated from the copy <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a> by one or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.
@@ -667,7 +680,8 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     http://perma.cc/RL33-W794 2014-03-10"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example declares the date external content was reference as well as two copies and the dates those copies were made.
@@ -679,19 +693,21 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     http://perma.cc/RL33-W794 2014-03-10"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example shows that, if a location of a copy of target content is known, a developer can include the relationship between the target content and the copy. The relationship must be one of the keywords defined by <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a> or <a data-link-type=dfn href=#dfn-html5-link-type-extension title="html5 link type extension">HTML5 link type extension</a> definitions.
 
-<p>    The memento <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>, for example, is an extension which declares that the copy is "a fixed resource that will no longer change state."
+<p>The memento <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>, for example, is an extension which declares that the copy is "a fixed resource that will no longer change state."</p>
 
     <pre>  &lt;a
     href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
     mset="http://perma.cc/RL33-W794 memento"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
   <div class=example>
     This example shows that, if a location of a copy of target content is known, the date the copy of external content was made is known, and the relationship between the target content and the copy is known, a developer can include all three pieces of information in one <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>.
@@ -701,58 +717,68 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     mset="http://perma.cc/RL33-W794 2014-03-10 memento"&gt;
     HTML 2.0
   &lt;/a&gt;
-</pre>  </div>
+</pre>
+  </div>
 
 <h2 class="heading settled heading" data-level=2 id=defs><span class=secno>2 </span><span class=content>
 Definitions</span><a class=self-link href=#defs></a></h2>
 
-<p>	The following terms are used throughout this specification so they are
+<p>The following terms are used throughout this specification so they are
 	gathered here for the reader’s convenience. The following list of terms
 	is not exhaustive; other terms are defined throughout this
-	specification.
+	specification.</p>
 
-<p>	The following terms are defined by the <a data-biblio-type=normative data-link-type=biblio href=#html title=html>[HTML]</a> specification:
-	<dfn data-dfn-type=dfn data-noexport="" id=dfn-skip-whitespace>skip whitespace<a class=self-link href=#dfn-skip-whitespace></a></dfn>,
+<p>The following terms are defined by the <a data-biblio-type=normative data-link-type=biblio href=#html title=html>[HTML]</a> specification:</p>
+
+<p><dfn data-dfn-type=dfn data-noexport="" id=dfn-skip-whitespace>skip whitespace<a class=self-link href=#dfn-skip-whitespace></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-collect-a-sequence-of-characters>collect a sequence of characters<a class=self-link href=#dfn-collect-a-sequence-of-characters></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-set-of-comma-separated-tokens>set of comma-separated tokens<a class=self-link href=#dfn-set-of-comma-separated-tokens></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-space-character>space characters<a class=self-link href=#dfn-space-character></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-split-a-string-on-spaces>split a string on spaces<a class=self-link href=#dfn-split-a-string-on-spaces></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-hyperlink>hyperlink<a class=self-link href=#dfn-hyperlink></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-following-hyperlinks>Following hyperlinks<a class=self-link href=#dfn-following-hyperlinks></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-datetime-value>datetime value<a class=self-link href=#dfn-datetime-value></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-valid-non-empty-url>valid non-empty URL<a class=self-link href=#dfn-valid-non-empty-url></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-link-type>link type<a class=self-link href=#dfn-link-type></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-html5-link-type-extension>HTML5 link type extension<a class=self-link href=#dfn-html5-link-type-extension></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-context-menus>Context menus<a class=self-link href=#dfn-context-menus></a></dfn>,
+	<dfn data-dfn-type=element data-export="" id=dfn-menu>menu<a class=self-link href=#dfn-menu></a></dfn> element,
+	<dfn class=idl-code data-dfn-for=menu data-dfn-type=event data-export="" id=dfn-event-contextmenu>contextmenu<a class=self-link href=#dfn-event-contextmenu></a></dfn> event,
+	<dfn class=idl-code data-dfn-for=menu data-dfn-type=event data-export="" id=dfn-event-show>show<a class=self-link href=#dfn-event-show></a></dfn> event,
+	<dfn class=idl-code data-dfn-for=a data-dfn-type=attribute data-export="" id=dfn-contextmenu>contextmenu<a class=self-link href=#dfn-contextmenu></a></dfn> attribute,
 	and
-	<dfn data-dfn-type=dfn data-noexport="" id=dfn-html5-link-type-extension>HTML5 link type extension<a class=self-link href=#dfn-html5-link-type-extension></a></dfn>.
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-show>show<a class=self-link href=#dfn-show></a></dfn>.</p>
 
 <h2 class="heading settled heading" data-level=3 id=the-a-element><span class=secno>3 </span><span class=content>
 Additions to the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> Element</span><a class=self-link href=#the-a-element></a></h2>
 
-<p>  The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element (when an <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute is present) represents a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to other parts of the current document or a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to other documents.
+<p>The <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element (when an <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute is present) represents a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to other parts of the current document or a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to other documents.</p>
 
 <h3 class="heading settled heading" data-level=3.1 id=the-mset-attribute><span class=secno>3.1 </span><span class=content>
 The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> Attribute</span><a class=self-link href=#the-mset-attribute></a></h3>
 
   <pre class=idl>partial interface <a class=idl-code data-global-name="" data-link-type=interface href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#htmlanchorelement title=htmlanchorelement>HTMLAnchorElement</a> {
-    attribute DOMString <dfn class=idl-code data-dfn-for=HTMLAnchorElement data-dfn-type=attribute data-export="" data-global-name="HTMLAnchorElement<interface>/mset<attribute>" id=dom-htmlanchorelement-mset>mset<a class=self-link href=#dom-htmlanchorelement-mset></a></dfn>;
+    attribute DOMString <dfn class=idl-code data-dfn-for=HTMLAnchorElement data-dfn-type=attribute data-export="" data-global-name="HTMLAnchorElement<interface>/mset<attribute>" data-type=DOMString id=dom-htmlanchorelement-mset>mset<a class=self-link href=#dom-htmlanchorelement-mset></a></dfn>;
   };
 </pre>
-<p>  If the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element is a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can also be present. If present, its value must consist of one or more <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s, each separated from the next by a "," (U+002C) COMMA character. This attribute allows authors to provide a temporal context to the target content of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, links to copies of the target content of a hyperlink, or both.
 
-<p>  The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute must be omitted if the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute is not present.
-  
-<p>  A <dfn data-dfn-type=dfn data-export="" id=reference-candidate>reference candidate<a class=self-link href=#reference-candidate></a></dfn> declares one of two additional properties of the external resource of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>:
-  
+<p>If the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element is a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can also be present. If present, its value must consist of one or more <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s, each separated from the next by a "," (U+002C) COMMA character. This attribute allows authors to provide a temporal context to the target content of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, links to copies of the target content of a hyperlink, or both.</p>
+
+<p>The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute must be omitted if the <a class=idl-code data-link-type=attribute href=http://www.w3.org/html/wg/drafts/html/CR/document-metadata.html#dom-base-href title=href>href</a> attribute is not present.</p>
+
+<p>A <dfn data-dfn-type=dfn data-export="" id=reference-candidate>reference candidate<a class=self-link href=#reference-candidate></a></dfn> declares one of two additional properties of the external resource of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>:</p>
+
   <dl>
     <dt><dfn data-dfn-type=dfn data-export="" id=temporal-reference>temporal reference<a class=self-link href=#temporal-reference></a></dfn></dt>
     <dd>The date at which the external resource was referenced in the context of when the current document, article, or section was authored.</dd>
-    
+
     <dt><dfn data-dfn-type=dfn data-export="" id=copy-link>copy link<a class=self-link href=#copy-link></a></dfn></dt>
     <dd>The location of a copy of the content of the external resource.</dd>
   </dl>
 
-<p>  A <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a> must not be both a <a data-link-type=dfn href=#temporal-reference title="temporal reference">temporal reference</a> and a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>.
-    
-<p>  If the <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a> is a <a data-link-type=dfn href=#temporal-reference title="temporal reference">temporal reference</a>, it must consist of the following components, in order:
+<p>A <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a> must not be both a <a data-link-type=dfn href=#temporal-reference title="temporal reference">temporal reference</a> and a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>.</p>
+
+<p>If the <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a> is a <a data-link-type=dfn href=#temporal-reference title="temporal reference">temporal reference</a>, it must consist of the following components, in order:</p>
 
 <ol>
   <li>Zero or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.</li>
@@ -760,7 +786,7 @@ The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset 
   <li>Zero or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.</li>
 </ol>
 
-<p>  If the <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a> is a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>, it must consist of the following components, in order:
+<p>If the <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a> is a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>, it must consist of the following components, in order:</p>
 
 <ol>
   <li>Zero or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.</li>
@@ -772,10 +798,58 @@ The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset 
   <li>Zero or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.</li>
 </ol>
 
-<h2 class="heading settled heading" data-level=4 id=acks><span class=secno>4 </span><span class=content>
+<h2 class="heading settled heading" data-level=4 id=processing-model><span class=secno>4 </span><span class=content>
+Processing model</span><a class=self-link href=#processing-model></a></h2>
+
+<p>This spec defines a method for including additional references to copies of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>’s target content. Providing a user access to these references is not defined by this specification. However, this section suggests behaviors which user agents can choose to adopt to make the references discoverable.</p>
+
+<h3 class="heading settled heading" data-level=4.1 id=default-hyperlink-behavior><span class=secno>4.1 </span><span class=content>
+  Default hyperlink behavior</span><a class=self-link href=#default-hyperlink-behavior></a></h3>
+
+<p>The presence of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute must not affect the default user agent behavior described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">Following hyperlinks</a>.</p>
+
+<p>For example, following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server’s 404 page if one exists.</p>
+
+<h3 class="heading settled heading" data-level=4.2 id=primary-behavior><span class=secno>4.2 </span><span class=content>
+  Suggested primary user agent behavior</span><a class=self-link href=#primary-behavior></a></h3>
+
+<p>In the case where, after following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.</p>
+
+<p>A user agent can reveal additional references in a new context menu item titled, e.g., Open cached copy of link. The menu item can expand to list each <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> and, if provided in the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute, the date on which the copy was made.</p>
+
+  <figure>
+    <img src=images/mset-primary.png>
+    <figcaption>Primary user agent behavior, context menu listing mset references</figcaption>
+  </figure>
+
+<p>If a user selects a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> from the list, the user agent must perform the steps described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">Following hyperlinks</a> and navigate to the selected <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a>.</p>
+
+<h4 class="heading settled heading" data-level=4.2.1 id=open-copy><span class=secno>4.2.1 </span><span class=content>
+  Context menu item</span><a class=self-link href=#open-copy></a></h4>
+
+<p>Display "Open copy of link content" in context menu.</p>
+
+<h4 class="heading settled heading" data-level=4.2.2 id=relationship-to-contextmenu><span class=secno>4.2.2 </span><span class=content>
+  Relationship to the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event and the <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute</span><a class=self-link href=#relationship-to-contextmenu></a></h4>
+
+<p>When a user requests a context menu for an <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element with an <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute (e.g., by right-click or tap and hold), the user agent must first perform the following actions:</p>
+
+  <ol>
+    <li>fire a <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event at the element, and then</li>
+    <li>if that event is not canceled and the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element has a <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute, fire a <a class=idl-code data-link-type=event href=#dfn-event-show title=show>show</a> event at the corresponding <a data-link-type=element href=#dfn-menu title=menu>menu</a> element as described in <a data-link-type=dfn href=#dfn-context-menus title="context menus">Context menus</a></li>
+  </ol>
+
+<p>If the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event is not canceled and the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element does not have a <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute, then the user agent should display its own context menu for the <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> and should include the suggested primary behavior described above.</p>
+
+<h3 class="heading settled heading" data-level=4.3 id=secondary-behavior><span class=secno>4.3 </span><span class=content>
+  Suggested secondary user agent behavior</span><a class=self-link href=#secondary-behavior></a></h3>
+
+<p>List <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>s on browser "page not available" screen.</p>
+
+<h2 class="heading settled heading" data-level=5 id=acks><span class=secno>5 </span><span class=content>
 Acknowledgements</span><a class=self-link href=#acks></a></h2>
 
-<p>  Contributions from: Ryan Westphal, Genève Bergeron, Herbert Van de Sompel, Jack Cushman, Michael Nelson
+<p>Contributions from: Ryan Westphal, Genève Bergeron, Herbert Van de Sompel, Jack Cushman, Michael Nelson</p>
 
 <h2 class="no-ref no-num heading settled heading" id=conformance><span class=content>
 Conformance</span><a class=self-link href=#conformance></a></h2>
@@ -822,15 +896,22 @@ Informative References</span><a class=self-link href=#informative></a></h3>
 Index</span><a class=self-link href=#index></a></h2>
 <div data-fill-with=index><ul class=indexlist>
 <li>collect a sequence of characters, <a href=#dfn-collect-a-sequence-of-characters title="section 2">2</a>
+<li>contextmenu<ul><li>event for menu, <a href=#dfn-event-contextmenu title="section 2">2</a>
+<li>attribute for a, <a href=#dfn-contextmenu title="section 2">2</a>
+</ul><li>Context menus, <a href=#dfn-context-menus title="section 2">2</a>
 <li>copy link, <a href=#copy-link title="section 3.1">3.1</a>
 <li>datetime value, <a href=#dfn-datetime-value title="section 2">2</a>
+<li>Following hyperlinks, <a href=#dfn-following-hyperlinks title="section 2">2</a>
 <li>HTML5 link type extension, <a href=#dfn-html5-link-type-extension title="section 2">2</a>
 <li>hyperlink, <a href=#dfn-hyperlink title="section 2">2</a>
 <li>link type, <a href=#dfn-link-type title="section 2">2</a>
+<li>menu, <a href=#dfn-menu title="section 2">2</a>
 <li>mset, <a href=#dom-htmlanchorelement-mset title="section 3.1">3.1</a>
 <li>reference candidate, <a href=#reference-candidate title="section 3.1">3.1</a>
 <li>set of comma-separated tokens, <a href=#dfn-set-of-comma-separated-tokens title="section 2">2</a>
-<li>skip whitespace, <a href=#dfn-skip-whitespace title="section 2">2</a>
+<li>show<ul><li>event for menu, <a href=#dfn-event-show title="section 2">2</a>
+<li>definition of, <a href=#dfn-show title="section 2">2</a>
+</ul><li>skip whitespace, <a href=#dfn-skip-whitespace title="section 2">2</a>
 <li>space characters, <a href=#dfn-space-character title="section 2">2</a>
 <li>split a string on spaces, <a href=#dfn-split-a-string-on-spaces title="section 2">2</a>
 <li>temporal reference, <a href=#temporal-reference title="section 3.1">3.1</a>
