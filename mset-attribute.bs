@@ -252,6 +252,7 @@ Processing model</h2>
     <figcaption>Primary user agent behavior, context menu listing mset references</figcaption>
   </figure>
 
+  If a user selects a <a>copy link</a> from the list, the user agent must perform the steps described in <a>Following hyperlinks</a> and navigate to the selected [[!URL]].
 
 <h4 id='open-copy'>
   Context menu item</h4>
