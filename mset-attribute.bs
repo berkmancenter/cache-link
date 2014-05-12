@@ -231,6 +231,8 @@ The <a attribute>mset</a> Attribute</h3>
 <h2 id='processing-model'>
 Processing model</h2>
 
+  This spec defines a method for including additional references to copies of a <a>hyperlink</a>'s target content. Providing user access to these references is not defined by this specification. However, the following sections suggest behaviors user agents can adopt to make the references discoverable.
+
 <h3 id='default-hyperlink-behavior'>
   Default hyperlink behavior</h3>
 
@@ -241,16 +243,17 @@ Processing model</h2>
 <h3 id='primary-behavior'>
   Suggested primary user agent behavior</h3>
 
-  This spec defines a method for including additional references to copies of a <a>hyperlink</a>'s target content and giving users access to these references.
+  In the case where, after following a <a>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.
 
-  In the case where, after following a <a>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent should provide access to additional hyperlinks should the user go back and look for them.
+<h4 id='open-copy'>
+  Context menu item</h4>
 
   Display &quot;Open copy of link content&quot; in context menu.
 
 <h4 id='relationship-to-contextmenu'>
   Relationship to the <a event>contextmenu</a> event and the <a attribute>contextmenu</a> attribute</h4>
 
-  When a user right-clicks on an <a element>a</a> element with an <a attribute>mset</a> attribute, the user agent must first perform the following actions:
+  When a user requests a context menu for an <a element>a</a> element with an <a attribute>mset</a> attribute (e.g., by right-click or tap and hold), the user agent must first perform the following actions:
 
   <ol>
     <li>fire a <a event>contextmenu</a> event at the element, and then</li>

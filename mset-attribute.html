@@ -549,14 +549,14 @@ span.issue, span.note {
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The mset Attribute</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140508>8 May 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140512>12 May 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Editor’s Draft:<dd><a href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Test Suite:<dd>None Yet<dt>Editors:
 <dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://cyber.law.harvard.edu>Ryan Westphal</a> (<span class="p-org org">Berkman Center for Internet and Society</span>)<dt>Version History:<dd><a href=https://github.com/berkmancenter/cache-link/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=https://cyber.law.harvard.edu/lists/info/link-standards>Public mailing list</a><dd><a href=https://github.com/berkmancenter/cache-link>Github</a></dl></div>
   <div data-fill-with=warning></div>
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 8 May 2014,
+In addition, as of 12 May 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -585,7 +585,8 @@ Parts of this work may be from another specification document.  If so, those par
 		<li><a href=#default-hyperlink-behavior><span class=secno>4.1</span>   Default hyperlink behavior</a>
 		<li><a href=#primary-behavior><span class=secno>4.2</span>   Suggested primary user agent behavior</a>
 			<ul class=toc>
-			<li><a href=#relationship-to-contextmenu><span class=secno>4.2.1</span>   Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a></ul>
+			<li><a href=#open-copy><span class=secno>4.2.1</span>   Context menu item</a>
+			<li><a href=#relationship-to-contextmenu><span class=secno>4.2.2</span>   Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a></ul>
 		<li><a href=#secondary-behavior><span class=secno>4.3</span>   Suggested secondary user agent behavior</a></ul>
 	<li><a href=#acks><span class=secno>5</span> Acknowledgements</a>
 	<li><a href=#conformance><span class=secno></span> Conformance</a>
@@ -800,6 +801,8 @@ The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset 
 <h2 class="heading settled heading" data-level=4 id=processing-model><span class=secno>4 </span><span class=content>
 Processing model</span><a class=self-link href=#processing-model></a></h2>
 
+<p>This spec defines a method for including additional references to copies of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>’s target content. Providing user access to these references is not defined by this specification. However, the following sections suggest behaviors user agents can adopt to make the references discoverable.</p>
+
 <h3 class="heading settled heading" data-level=4.1 id=default-hyperlink-behavior><span class=secno>4.1 </span><span class=content>
   Default hyperlink behavior</span><a class=self-link href=#default-hyperlink-behavior></a></h3>
 
@@ -810,16 +813,17 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 <h3 class="heading settled heading" data-level=4.2 id=primary-behavior><span class=secno>4.2 </span><span class=content>
   Suggested primary user agent behavior</span><a class=self-link href=#primary-behavior></a></h3>
 
-<p>This spec defines a method for including additional references to copies of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>’s target content and giving users access to these references.</p>
+<p>In the case where, after following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.</p>
 
-<p>In the case where, after following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent should provide access to additional hyperlinks should the user go back and look for them.</p>
+<h4 class="heading settled heading" data-level=4.2.1 id=open-copy><span class=secno>4.2.1 </span><span class=content>
+  Context menu item</span><a class=self-link href=#open-copy></a></h4>
 
 <p>Display "Open copy of link content" in context menu.</p>
 
-<h4 class="heading settled heading" data-level=4.2.1 id=relationship-to-contextmenu><span class=secno>4.2.1 </span><span class=content>
+<h4 class="heading settled heading" data-level=4.2.2 id=relationship-to-contextmenu><span class=secno>4.2.2 </span><span class=content>
   Relationship to the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event and the <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute</span><a class=self-link href=#relationship-to-contextmenu></a></h4>
 
-<p>When a user right-clicks on an <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element with an <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute, the user agent must first perform the following actions:</p>
+<p>When a user requests a context menu for an <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element with an <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute (e.g., by right-click or tap and hold), the user agent must first perform the following actions:</p>
 
   <ol>
     <li>fire a <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event at the element, and then</li>
