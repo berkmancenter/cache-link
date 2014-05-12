@@ -815,6 +815,9 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 
 <p>In the case where, after following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.</p>
 
+<h4 class="heading settled heading" data-level=4.2.1 id=open-copy><span class=secno>4.2.1 </span><span class=content>
+  Context menu item</span><a class=self-link href=#open-copy></a></h4>
+
 <p>A user agent can reveal additional references in a new context menu item titled, e.g., Open cached copy of link. The menu item can expand to list each <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> and, if provided in the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute, the date on which the copy was made.</p>
 
   <figure>
@@ -823,11 +826,6 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
   </figure>
 
 <p>If a user selects a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> from the list, the user agent must perform the steps described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">Following hyperlinks</a> and navigate to the selected <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a>.</p>
-
-<h4 class="heading settled heading" data-level=4.2.1 id=open-copy><span class=secno>4.2.1 </span><span class=content>
-  Context menu item</span><a class=self-link href=#open-copy></a></h4>
-
-<p>Display "Open copy of link content" in context menu.</p>
 
 <h4 class="heading settled heading" data-level=4.2.2 id=relationship-to-contextmenu><span class=secno>4.2.2 </span><span class=content>
   Relationship to the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event and the <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute</span><a class=self-link href=#relationship-to-contextmenu></a></h4>

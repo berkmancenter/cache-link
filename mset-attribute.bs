@@ -245,6 +245,9 @@ Processing model</h2>
 
   In the case where, after following a <a>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.
 
+<h4 id='open-copy'>
+  Context menu item</h4>
+
   A user agent can reveal additional references in a new context menu item titled, e.g., Open cached copy of link. The menu item can expand to list each <a>copy link</a> and, if provided in the <a attribute>mset</a> attribute, the date on which the copy was made. 
 
   <figure>
@@ -253,11 +256,6 @@ Processing model</h2>
   </figure>
 
   If a user selects a <a>copy link</a> from the list, the user agent must perform the steps described in <a>Following hyperlinks</a> and navigate to the selected [[!URL]].
-
-<h4 id='open-copy'>
-  Context menu item</h4>
-
-  Display &quot;Open copy of link content&quot; in context menu.
 
 <h4 id='relationship-to-contextmenu'>
   Relationship to the <a event>contextmenu</a> event and the <a attribute>contextmenu</a> attribute</h4>
