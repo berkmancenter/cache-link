@@ -5,8 +5,9 @@ Status: ED
 ED: http://berkmancenter.github.io/cache-link/mset-attribute.html
 Shortname: mset-attribute
 Level: 1
-Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu
+Editor: Ryan Westphal, Berkman Center for Internet and Society, http://cyber.law.harvard.edu/people/rwestphal
 Editor: Herbert Van de Sompel, Los Alamos National Laboratory, http://public.lanl.gov/herbertv
+Editor: Michael L. Nelson, Old Dominion University
 Abstract: The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
 Abstract: The primary purpose of the <code>mset</code> attribute is to address [Internet censorship], [link rot], [content drift], and [denial-of-service attack]s.
 !Version History: <a href="https://github.com/berkmancenter/cache-link/commits/gh-pages">Commit History</a>
