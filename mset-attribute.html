@@ -549,14 +549,14 @@ span.issue, span.note {
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The mset Attribute</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140512>12 May 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140513>13 May 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Editor’s Draft:<dd><a href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Test Suite:<dd>None Yet<dt>Editors:
 <dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://cyber.law.harvard.edu>Ryan Westphal</a> (<span class="p-org org">Berkman Center for Internet and Society</span>)<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://public.lanl.gov/herbertv>Herbert Van de Sompel</a> (<span class="p-org org">Los Alamos National Laboratory</span>)<dt>Version History:<dd><a href=https://github.com/berkmancenter/cache-link/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=https://cyber.law.harvard.edu/lists/info/link-standards>Public mailing list</a><dd><a href=https://github.com/berkmancenter/cache-link>Github</a></dl></div>
   <div data-fill-with=warning></div>
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 12 May 2014,
+In addition, as of 13 May 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -629,7 +629,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example shows the most basic usage of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute to declare the date external content was referenced while authoring the current document. The locations of existing copies can be omitted.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="2014-03-17"&gt;
     HTML 2.0
   &lt;/a&gt;
@@ -640,7 +640,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example shows a basic usage of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute to declare the location of a copy of target content. The date of reference while authoring the current document can be omitted, however, it is recommended.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
     HTML 2.0
   &lt;/a&gt;
@@ -651,7 +651,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example shows that both the date of reference and location of a copy can be used in the same <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute. They should be separated by a "," (U+002C) character.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="2014-03-17,
       http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
     HTML 2.0
@@ -663,7 +663,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example shows pointing to more than one copy of external target content by separating multiple <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s with "," (U+002C) characters.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html,
       http://perma.cc/RL33-W794"&gt;
     HTML 2.0
@@ -675,7 +675,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> are separated from the copy <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a> by one or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
     http://perma.cc/RL33-W794 2014-03-10"&gt;
     HTML 2.0
@@ -687,7 +687,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example declares the date external content was reference as well as two copies and the dates those copies were made.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="2014-03-17,
     http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
     http://perma.cc/RL33-W794 2014-03-10"&gt;
@@ -702,7 +702,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 <p>The memento <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>, for example, is an extension which declares that the copy is "a fixed resource that will no longer change state."</p>
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="http://perma.cc/RL33-W794 memento"&gt;
     HTML 2.0
   &lt;/a&gt;
@@ -713,7 +713,7 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
     This example shows that, if a location of a copy of target content is known, the date the copy of external content was made is known, and the relationship between the target content and the copy is known, a developer can include all three pieces of information in one <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>.
 
     <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html
+    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
     mset="http://perma.cc/RL33-W794 2014-03-10 memento"&gt;
     HTML 2.0
   &lt;/a&gt;
