@@ -161,13 +161,17 @@ Definitions</h2>
 
 	The following terms are defined by the [[!HTML]] specification:
 
+  <dfn id="dfn-browsing-context">browsing context</dfn>,
 	<dfn id="dfn-skip-whitespace">skip whitespace</dfn>,
 	<dfn id="dfn-collect-a-sequence-of-characters">collect a sequence of characters</dfn>,
 	<dfn id="dfn-set-of-comma-separated-tokens">set of comma-separated tokens</dfn>,
 	<dfn id="dfn-space-character">space characters</dfn>,
 	<dfn id="dfn-split-a-string-on-spaces">split a string on spaces</dfn>,
 	<dfn id="dfn-hyperlink">hyperlink</dfn>,
-	<dfn id="dfn-following-hyperlinks">Following hyperlinks</dfn>,
+	<dfn id="dfn-following-hyperlinks">following hyperlinks</dfn>,
+  <dfn id="dfn-resolve-a-url">resolve a URL</dfn>
+  <dfn id="dfn-navigate">navigate</dfn>
+  <dfn id="dfn-fetch">fetch</dfn>
 	<dfn id="dfn-datetime-value">datetime value</dfn>,
 	<dfn id="dfn-valid-non-empty-url">valid non-empty URL</dfn>,
 	<dfn id="dfn-link-type">link type</dfn>,
@@ -238,14 +242,14 @@ Processing model</h2>
 <h3 id='default-hyperlink-behavior'>
   Default hyperlink behavior</h3>
 
-  The presence of the <a attribute>mset</a> attribute must not affect the default user agent behavior described in <a>Following hyperlinks</a>.
+  The presence of the <a attribute>mset</a> attribute must not affect the default user agent behavior described in <a>following hyperlinks</a>.
 
-  For example, following a <a>hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server's 404 page if one exists.
+  For example, <a href="#dfn-following-hyperlinks">following a hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server's 404 page if one exists.
 
 <h3 id='primary-behavior'>
   Suggested primary user agent behavior</h3>
 
-  In the case where, after following a <a>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.
+  In the case where, after <a href="#dfn-following-hyperlinks">following a hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.
 
 <h4 id='open-copy'>
   Context menu item</h4>
@@ -257,7 +261,7 @@ Processing model</h2>
     <figcaption>Primary user agent behavior, context menu listing mset references</figcaption>
   </figure>
 
-  If a user selects a <a>copy link</a> from the list, the user agent must perform the steps described in <a>Following hyperlinks</a> and navigate to the selected [[!URL]].
+  If a user selects a <a>copy link</a> from the list, the user agent must perform the steps described in <a>following hyperlinks</a> and <a>navigate</a> to the selected [[!URL]].
 
 <h4 id='relationship-to-contextmenu'>
   Relationship to the <a event>contextmenu</a> event and the <a attribute>contextmenu</a> attribute</h4>
@@ -274,7 +278,15 @@ Processing model</h2>
 <h3 id='secondary-behavior'>
   Suggested secondary user agent behavior</h3>
 
-  List <a>copy link</a>s on browser &quot;page not available&quot; screen.
+  If the user agent encounters an error while <a href="#dfn-following-hyperlinks">following a hyperlink</a>, e.g., the user agent cannot <a>fetch</a> the resource because the web server of the resource cannot be found, can be found but does not respond, or can be found but responds with an server error, the user agent should display the <a href="#copy-link">copy links</a> defined in the <a attribute>mset</a> attribute of the <a>hyperlink</a> that was clicked.
+
+  queue a task to havigate the browsing context to an error page
+
+  If such an error occurs while the user agent is performing the steps defined in <a>following hyperlink</a>, it should also perform the following steps after 
+
+  Buttons or links on 5xx pages
+
+  Chrome screenshot
 
 <h2 id='acks'>
 Acknowledgements</h2>

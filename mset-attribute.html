@@ -549,14 +549,26 @@ span.issue, span.note {
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The mset Attribute</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140513>13 May 2014</span></span></span></h2>
-  <div data-fill-with=spec-metadata><dl><dt>This version:<dd><a class=u-url href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Editor’s Draft:<dd><a href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a><dt>Test Suite:<dd>None Yet<dt>Editors:
-<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://cyber.law.harvard.edu/people/rwestphal>Ryan Westphal</a> (<span class="p-org org">Berkman Center for Internet and Society</span>)<dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://public.lanl.gov/herbertv>Herbert Van de Sompel</a> (<span class="p-org org">Los Alamos National Laboratory</span>)<dd class="p-author h-card vcard"><span class="p-name fn">Michael L. Nelson</span> (<span class="p-org org">Old Dominion University</span>)<dt>Version History:<dd><a href=https://github.com/berkmancenter/cache-link/commits/gh-pages>Commit History</a><dt>Participate:<dd><a href=https://cyber.law.harvard.edu/lists/info/link-standards>Public mailing list</a><dd><a href=https://github.com/berkmancenter/cache-link>Github</a></dl></div>
+    <span class=dt-updated><span class=value-title title=20140703>3 July 2014</span></span></span></h2>
+  <div data-fill-with=spec-metadata><dl>
+	<dt>This version:
+	<dd><a class=u-url href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a>
+	<dt>Editors:
+	<dd><dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://cyber.law.harvard.edu/people/rwestphal>Ryan Westphal</a> (<span class="p-org org">Berkman Center for Internet and Society</span>)
+	<dd><dd class="p-author h-card vcard"><a class="p-name fn u-url url" href=http://public.lanl.gov/herbertv>Herbert Van de Sompel</a> (<span class="p-org org">Los Alamos National Laboratory</span>)
+	<dd><dd class="p-author h-card vcard"><span class="p-name fn">Michael L. Nelson</span> (<span class="p-org org">Old Dominion University</span>)
+	<dt>Version History:
+	<dd><a href=https://github.com/berkmancenter/cache-link/commits/gh-pages>Commit History</a>
+	<dt>Participate:
+	<dd><a href=https://cyber.law.harvard.edu/lists/info/link-standards>Public mailing list</a>
+	<dd><a href=https://github.com/berkmancenter/cache-link>Github</a>
+</dl>
+</div>
   <div data-fill-with=warning></div>
-  <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=http://i.creativecommons.org/p/zero/1.0/80x15.png></a>
+  <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=https://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 13 May 2014,
+In addition, as of 3 July 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -566,36 +578,39 @@ Parts of this work may be from another specification document.  If so, those par
 </div>
 
 <h2 class="no-num no-toc no-ref heading settled heading" id=abstract><span class=content>Abstract</span></h2>
-<p class=p-summary data-fill-with=abstract>The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.<p>The primary purpose of the <code>mset</code> attribute is to address [Internet censorship], [link rot], [content drift], and [denial-of-service attack]s.
-</p>
+<div class=p-summary data-fill-with=abstract><p>The <code>mset</code> attribute is intended to give authors a way to provide temporal context to the target content of a hyperlink, links to copies of the target content of a hyperlink, or both.
+
+The primary purpose of the <code>mset</code> attribute is to address [Internet censorship], [link rot], [content drift], and [denial-of-service attack]s.</p>
+
+</div>
 <div data-fill-with=at-risk></div>
 
 <h2 class="no-num no-toc no-ref heading settled heading" id=contents><span class=content>Table of Contents</span></h2>
 <div data-fill-with=table-of-contents><ul class=toc>
-	<li><a href=#intro><span class=secno>1</span> Introduction</a>
+	<li><a href=#intro><span class=secno>1</span>  Introduction</a>
 		<ul class=toc>
-		<li><a href=#when-to-use><span class=secno>1.1</span> When to use <code>mset</code></a>
-		<li><a href=#examples><span class=secno>1.2</span> Examples of usage</a></ul>
-	<li><a href=#defs><span class=secno>2</span> Definitions</a>
-	<li><a href=#the-a-element><span class=secno>3</span> Additions to the <span data-link-type=element title=a>a</span> Element</a>
+		<li><a href=#when-to-use><span class=secno>1.1</span>  When to use <code>mset</code></a>
+		<li><a href=#examples><span class=secno>1.2</span>  Examples of usage</a></ul>
+	<li><a href=#defs><span class=secno>2</span>  Definitions</a>
+	<li><a href=#the-a-element><span class=secno>3</span>  Additions to the <span data-link-type=element title=a>a</span> Element</a>
 		<ul class=toc>
-		<li><a href=#the-mset-attribute><span class=secno>3.1</span> The <span data-link-type=attribute title=mset>mset</span> Attribute</a></ul>
-	<li><a href=#processing-model><span class=secno>4</span> Processing model</a>
+		<li><a href=#the-mset-attribute><span class=secno>3.1</span>  The <span data-link-type=attribute title=mset>mset</span> Attribute</a></ul>
+	<li><a href=#processing-model><span class=secno>4</span>  Processing model</a>
 		<ul class=toc>
-		<li><a href=#default-hyperlink-behavior><span class=secno>4.1</span>   Default hyperlink behavior</a>
-		<li><a href=#primary-behavior><span class=secno>4.2</span>   Suggested primary user agent behavior</a>
+		<li><a href=#default-hyperlink-behavior><span class=secno>4.1</span>    Default hyperlink behavior</a>
+		<li><a href=#primary-behavior><span class=secno>4.2</span>    Suggested primary user agent behavior</a>
 			<ul class=toc>
-			<li><a href=#open-copy><span class=secno>4.2.1</span>   Context menu item</a>
-			<li><a href=#relationship-to-contextmenu><span class=secno>4.2.2</span>   Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a></ul>
-		<li><a href=#secondary-behavior><span class=secno>4.3</span>   Suggested secondary user agent behavior</a></ul>
-	<li><a href=#acks><span class=secno>5</span> Acknowledgements</a>
-	<li><a href=#conformance><span class=secno></span> Conformance</a>
-	<li><a href=#references><span class=secno></span> References</a>
+			<li><a href=#open-copy><span class=secno>4.2.1</span>    Context menu item</a>
+			<li><a href=#relationship-to-contextmenu><span class=secno>4.2.2</span>    Relationship to the <span data-link-type=event title=contextmenu>contextmenu</span> event and the <span data-link-type=attribute title=contextmenu>contextmenu</span> attribute</a></ul>
+		<li><a href=#secondary-behavior><span class=secno>4.3</span>    Suggested secondary user agent behavior</a></ul>
+	<li><a href=#acks><span class=secno>5</span>  Acknowledgements</a>
+	<li><a href=#conformance><span class=secno></span>  Conformance</a>
+	<li><a href=#references><span class=secno></span>  References</a>
 		<ul class=toc>
-		<li><a href=#normative><span class=secno></span> Normative References</a>
-		<li><a href=#informative><span class=secno></span> Informative References</a></ul>
-	<li><a href=#index><span class=secno></span> Index</a>
-	<li><a href=#property-index><span class=secno></span> Property index</a></ul></div>
+		<li><a href=#normative><span class=secno></span>  Normative References</a>
+		<li><a href=#informative><span class=secno></span>  Informative References</a></ul>
+	<li><a href=#index><span class=secno></span>  Index</a>
+	<li><a href=#property-index><span class=secno></span>  Property index</a></ul></div>
 
 
 
@@ -628,71 +643,71 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
   <div class=example>
     This example shows the most basic usage of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute to declare the date external content was referenced while authoring the current document. The locations of existing copies can be omitted.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="2014-03-17"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="2014-03-17"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
   <div class=example>
     This example shows a basic usage of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute to declare the location of a copy of target content. The date of reference while authoring the current document can be omitted, however, it is recommended.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
   <div class=example>
     This example shows that both the date of reference and location of a copy can be used in the same <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute. They should be separated by a "," (U+002C) character.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="2014-03-17,
-      http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="2014-03-17,
+    http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
   <div class=example>
     This example shows pointing to more than one copy of external target content by separating multiple <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s with "," (U+002C) characters.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html,
-      http://perma.cc/RL33-W794"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html,
+    http://perma.cc/RL33-W794"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
   <div class=example>
-    This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> are separated from the copy <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a> by one or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.
+    This example shows usage of the optional <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> to declare the date the copy of the external content was made if it is known. <a data-link-type=dfn href=#dfn-datetime-value title="datetime value">datetime value</a> are separated from the copy <a data-biblio-type=normative data-link-type=biblio href=#biblio-url title=biblio-url>[URL]</a> by one or more <a data-link-type=dfn href=#dfn-space-character title="space characters">space characters</a>.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
-    http://perma.cc/RL33-W794 2014-03-10"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
+  http://perma.cc/RL33-W794 2014-03-10"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
   <div class=example>
     This example declares the date external content was reference as well as two copies and the dates those copies were made.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="2014-03-17,
-    http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
-    http://perma.cc/RL33-W794 2014-03-10"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="2014-03-17,
+  http://web.archive.org/web/20140211110349/http://www.w3.org/MarkUp/html-spec/html-spec_toc.html 2014-02-14,
+  http://perma.cc/RL33-W794 2014-03-10"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
@@ -701,22 +716,22 @@ Examples of usage</span><a class=self-link href=#examples></a></h3>
 
 <p>The memento <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>, for example, is an extension which declares that the copy is "a fixed resource that will no longer change state."</p>
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="http://perma.cc/RL33-W794 memento"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="http://perma.cc/RL33-W794 memento"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
   <div class=example>
     This example shows that, if a location of a copy of target content is known, the date the copy of external content was made is known, and the relationship between the target content and the copy is known, a developer can include all three pieces of information in one <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>.
 
-    <pre>  &lt;a
-    href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
-    mset="http://perma.cc/RL33-W794 2014-03-10 memento"&gt;
-    HTML 2.0
-  &lt;/a&gt;
+    <pre>&lt;a
+  href="http://www.w3.org/MarkUp/html-spec/html-spec_toc.html"
+  mset="http://perma.cc/RL33-W794 2014-03-10 memento"&gt;
+  HTML 2.0
+&lt;/a&gt;
 </pre>
   </div>
 
@@ -728,15 +743,19 @@ Definitions</span><a class=self-link href=#defs></a></h2>
 	is not exhaustive; other terms are defined throughout this
 	specification.</p>
 
-<p>The following terms are defined by the <a data-biblio-type=normative data-link-type=biblio href=#html title=html>[HTML]</a> specification:</p>
+<p>The following terms are defined by the <a data-biblio-type=normative data-link-type=biblio href=#biblio-html title=biblio-html>[HTML]</a> specification:</p>
 
-<p><dfn data-dfn-type=dfn data-noexport="" id=dfn-skip-whitespace>skip whitespace<a class=self-link href=#dfn-skip-whitespace></a></dfn>,
+<p><dfn data-dfn-type=dfn data-noexport="" id=dfn-browsing-context>browsing context<a class=self-link href=#dfn-browsing-context></a></dfn>,</p>
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-skip-whitespace>skip whitespace<a class=self-link href=#dfn-skip-whitespace></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-collect-a-sequence-of-characters>collect a sequence of characters<a class=self-link href=#dfn-collect-a-sequence-of-characters></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-set-of-comma-separated-tokens>set of comma-separated tokens<a class=self-link href=#dfn-set-of-comma-separated-tokens></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-space-character>space characters<a class=self-link href=#dfn-space-character></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-split-a-string-on-spaces>split a string on spaces<a class=self-link href=#dfn-split-a-string-on-spaces></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-hyperlink>hyperlink<a class=self-link href=#dfn-hyperlink></a></dfn>,
-	<dfn data-dfn-type=dfn data-noexport="" id=dfn-following-hyperlinks>Following hyperlinks<a class=self-link href=#dfn-following-hyperlinks></a></dfn>,
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-following-hyperlinks>following hyperlinks<a class=self-link href=#dfn-following-hyperlinks></a></dfn>,
+  <dfn data-dfn-type=dfn data-noexport="" id=dfn-resolve-a-url>resolve a URL<a class=self-link href=#dfn-resolve-a-url></a></dfn>
+  <dfn data-dfn-type=dfn data-noexport="" id=dfn-navigate>navigate<a class=self-link href=#dfn-navigate></a></dfn>
+  <dfn data-dfn-type=dfn data-noexport="" id=dfn-fetch>fetch<a class=self-link href=#dfn-fetch></a></dfn>
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-datetime-value>datetime value<a class=self-link href=#dfn-datetime-value></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-valid-non-empty-url>valid non-empty URL<a class=self-link href=#dfn-valid-non-empty-url></a></dfn>,
 	<dfn data-dfn-type=dfn data-noexport="" id=dfn-link-type>link type<a class=self-link href=#dfn-link-type></a></dfn>,
@@ -747,7 +766,7 @@ Definitions</span><a class=self-link href=#defs></a></h2>
 	<dfn class=idl-code data-dfn-for=menu data-dfn-type=event data-export="" id=dfn-event-show>show<a class=self-link href=#dfn-event-show></a></dfn> event,
 	<dfn class=idl-code data-dfn-for=a data-dfn-type=attribute data-export="" id=dfn-contextmenu>contextmenu<a class=self-link href=#dfn-contextmenu></a></dfn> attribute,
 	and
-	<dfn data-dfn-type=dfn data-noexport="" id=dfn-show>show<a class=self-link href=#dfn-show></a></dfn>.</p>
+	<dfn data-dfn-type=dfn data-noexport="" id=dfn-show>show<a class=self-link href=#dfn-show></a></dfn>.
 
 <h2 class="heading settled heading" data-level=3 id=the-a-element><span class=secno>3 </span><span class=content>
 Additions to the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> Element</span><a class=self-link href=#the-a-element></a></h2>
@@ -758,8 +777,8 @@ Additions to the <a data-link-type=element href=http://www.w3.org/html/wg/drafts
 The <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> Attribute</span><a class=self-link href=#the-mset-attribute></a></h3>
 
   <pre class=idl>partial interface <a class=idl-code data-global-name="" data-link-type=interface href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#htmlanchorelement title=htmlanchorelement>HTMLAnchorElement</a> {
-    attribute DOMString <dfn class=idl-code data-dfn-for=HTMLAnchorElement data-dfn-type=attribute data-export="" data-global-name="HTMLAnchorElement<interface>/mset<attribute>" data-type=DOMString id=dom-htmlanchorelement-mset>mset<a class=self-link href=#dom-htmlanchorelement-mset></a></dfn>;
-  };
+  attribute DOMString <dfn class=idl-code data-dfn-for=HTMLAnchorElement data-dfn-type=attribute data-export="" data-global-name="HTMLAnchorElement<interface>/mset<attribute>" data-type="DOMString " id=dom-htmlanchorelement-mset>mset<a class=self-link href=#dom-htmlanchorelement-mset></a></dfn>;
+};
 </pre>
 
 <p>If the <a data-link-type=element href=http://www.w3.org/html/wg/drafts/html/CR/text-level-semantics.html#the-a-element title=a>a</a> element is a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute can also be present. If present, its value must consist of one or more <a data-link-type=dfn href=#reference-candidate title="reference candidate">reference candidate</a>s, each separated from the next by a "," (U+002C) COMMA character. This attribute allows authors to provide a temporal context to the target content of a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, links to copies of the target content of a hyperlink, or both.</p>
@@ -806,14 +825,14 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 <h3 class="heading settled heading" data-level=4.1 id=default-hyperlink-behavior><span class=secno>4.1 </span><span class=content>
   Default hyperlink behavior</span><a class=self-link href=#default-hyperlink-behavior></a></h3>
 
-<p>The presence of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute must not affect the default user agent behavior described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">Following hyperlinks</a>.</p>
+<p>The presence of the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute must not affect the default user agent behavior described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">following hyperlinks</a>.</p>
 
-<p>For example, following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server’s 404 page if one exists.</p>
+<p>For example, <a href=#dfn-following-hyperlinks>following a hyperlink</a> to missing content must trigger a [[GET request]] to the target, produce a response with a [[404 status code]], and present the user with the target server’s 404 page if one exists.</p>
 
 <h3 class="heading settled heading" data-level=4.2 id=primary-behavior><span class=secno>4.2 </span><span class=content>
   Suggested primary user agent behavior</span><a class=self-link href=#primary-behavior></a></h3>
 
-<p>In the case where, after following a <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.</p>
+<p>In the case where, after <a href=#dfn-following-hyperlinks>following a hyperlink</a>, the target content either no longer exists or is not what was expected, the user agent can provide access to additional references to copies of the content should the user go back and look for them.</p>
 
 <h4 class="heading settled heading" data-level=4.2.1 id=open-copy><span class=secno>4.2.1 </span><span class=content>
   Context menu item</span><a class=self-link href=#open-copy></a></h4>
@@ -825,7 +844,7 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
     <figcaption>Primary user agent behavior, context menu listing mset references</figcaption>
   </figure>
 
-<p>If a user selects a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> from the list, the user agent must perform the steps described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">Following hyperlinks</a> and navigate to the selected <a data-biblio-type=normative data-link-type=biblio href=#url title=url>[URL]</a>.</p>
+<p>If a user selects a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> from the list, the user agent must perform the steps described in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlinks">following hyperlinks</a> and <a data-link-type=dfn href=#dfn-navigate title=navigate>navigate</a> to the selected <a data-biblio-type=normative data-link-type=biblio href=#biblio-url title=biblio-url>[URL]</a>.</p>
 
 <h4 class="heading settled heading" data-level=4.2.2 id=relationship-to-contextmenu><span class=secno>4.2.2 </span><span class=content>
   Relationship to the <a class=idl-code data-link-type=event href=#dfn-event-contextmenu title=contextmenu>contextmenu</a> event and the <a class=idl-code data-link-type=attribute href=#dfn-contextmenu title=contextmenu>contextmenu</a> attribute</span><a class=self-link href=#relationship-to-contextmenu></a></h4>
@@ -842,7 +861,15 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 <h3 class="heading settled heading" data-level=4.3 id=secondary-behavior><span class=secno>4.3 </span><span class=content>
   Suggested secondary user agent behavior</span><a class=self-link href=#secondary-behavior></a></h3>
 
-<p>List <a data-link-type=dfn href=#copy-link title="copy link">copy link</a>s on browser "page not available" screen.</p>
+<p>If the user agent encounters an error while <a href=#dfn-following-hyperlinks>following a hyperlink</a>, e.g., the user agent cannot <a data-link-type=dfn href=#dfn-fetch title=fetch>fetch</a> the resource because the web server of the resource cannot be found, can be found but does not respond, or can be found but responds with an server error, the user agent should display the <a href=#copy-link>copy links</a> defined in the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute of the <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> that was clicked.</p>
+
+<p>queue a task to havigate the browsing context to an error page</p>
+
+<p>If such an error occurs while the user agent is performing the steps defined in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlink">following hyperlink</a>, it should also perform the following steps after</p>
+
+<p>Buttons or links on 5xx pages</p>
+
+<p>Chrome screenshot</p>
 
 <h2 class="heading settled heading" data-level=5 id=acks><span class=secno>5 </span><span class=content>
 Acknowledgements</span><a class=self-link href=#acks></a></h2>
@@ -862,7 +889,7 @@ Conformance</span><a class=self-link href=#conformance></a></h2>
 
     <p>
         All of the text of this specification is normative
-        except sections explicitly marked as non-normative, examples, and notes. <a data-biblio-type=normative data-link-type=biblio href=#rfc2119 title=rfc2119>[RFC2119]</a>
+        except sections explicitly marked as non-normative, examples, and notes. <a data-biblio-type=normative data-link-type=biblio href=#biblio-rfc2119 title=biblio-rfc2119>[RFC2119]</a>
 
     <p>
         Examples in this specification are introduced with the words “for example”
@@ -884,28 +911,37 @@ References</span><a class=self-link href=#references></a></h2>
 
 <h3 class="no-num no-ref heading settled heading" id=normative><span class=content>
 Normative References</span><a class=self-link href=#normative></a></h3>
-<div data-fill-with=normative-references><dl><dt id=html title=HTML><a class=self-link href=#html></a>[HTML]<dd>Ian Hickson. <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>HTML</a>. Living Standard. URL: <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>http://www.whatwg.org/specs/web-apps/current-work/multipage/</a><dt id=rfc2119 title=RFC2119><a class=self-link href=#rfc2119></a>[RFC2119]<dd>S. Bradner. <a href=http://www.ietf.org/rfc/rfc2119.txt>Key words for use in RFCs to Indicate Requirement Levels</a>. URL: <a href=http://www.ietf.org/rfc/rfc2119.txt>http://www.ietf.org/rfc/rfc2119.txt</a><dt id=url title=URL><a class=self-link href=#url></a>[URL]<dd>Erik Arvidsson; Michael. <a href=http://www.w3.org/TR/2012/WD-url-20120524/>URL</a>. 24 May 2012. W3C Working Draft. (Work in progress.) URL: <a href=http://www.w3.org/TR/2012/WD-url-20120524/>http://www.w3.org/TR/2012/WD-url-20120524/</a></dl></div>
+<div data-fill-with=normative-references><dl>
+<dt id=biblio-html title=HTML><a class=self-link href=#biblio-html></a>[HTML]<dd>Ian Hickson. <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>HTML</a>. Living Standard. URL: <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/>http://www.whatwg.org/specs/web-apps/current-work/multipage/</a></dd>
+<dt id=biblio-rfc2119 title=RFC2119><a class=self-link href=#biblio-rfc2119></a>[RFC2119]<dd>S. Bradner. <a href=http://www.ietf.org/rfc/rfc2119.txt>Key words for use in RFCs to Indicate Requirement Levels</a>. URL: <a href=http://www.ietf.org/rfc/rfc2119.txt>http://www.ietf.org/rfc/rfc2119.txt</a></dd>
+<dt id=biblio-url title=URL><a class=self-link href=#biblio-url></a>[URL]<dd>Erik Arvidsson; Michael. <a href=http://www.w3.org/TR/2012/WD-url-20120524/>URL</a>. 24 May 2012. W3C Working Draft. (Work in progress.) URL: <a href=http://www.w3.org/TR/2012/WD-url-20120524/>http://www.w3.org/TR/2012/WD-url-20120524/</a></dd>
+</dl></div>
 
 <h3 class="no-num no-ref heading settled heading" id=informative><span class=content>
 Informative References</span><a class=self-link href=#informative></a></h3>
-<div data-fill-with=informative-references><dl></dl></div>
+<div data-fill-with=informative-references><dl>
+</dl></div>
 
 <h2 class="no-num no-ref heading settled heading" id=index><span class=content>
 Index</span><a class=self-link href=#index></a></h2>
 <div data-fill-with=index><ul class=indexlist>
+<li>browsing context, <a href=#dfn-browsing-context title="section 2">2</a>
 <li>collect a sequence of characters, <a href=#dfn-collect-a-sequence-of-characters title="section 2">2</a>
 <li>contextmenu<ul><li>event for menu, <a href=#dfn-event-contextmenu title="section 2">2</a>
 <li>attribute for a, <a href=#dfn-contextmenu title="section 2">2</a>
 </ul><li>Context menus, <a href=#dfn-context-menus title="section 2">2</a>
 <li>copy link, <a href=#copy-link title="section 3.1">3.1</a>
 <li>datetime value, <a href=#dfn-datetime-value title="section 2">2</a>
-<li>Following hyperlinks, <a href=#dfn-following-hyperlinks title="section 2">2</a>
+<li>fetch, <a href=#dfn-fetch title="section 2">2</a>
+<li>following hyperlinks, <a href=#dfn-following-hyperlinks title="section 2">2</a>
 <li>HTML5 link type extension, <a href=#dfn-html5-link-type-extension title="section 2">2</a>
 <li>hyperlink, <a href=#dfn-hyperlink title="section 2">2</a>
 <li>link type, <a href=#dfn-link-type title="section 2">2</a>
 <li>menu, <a href=#dfn-menu title="section 2">2</a>
 <li>mset, <a href=#dom-htmlanchorelement-mset title="section 3.1">3.1</a>
+<li>navigate, <a href=#dfn-navigate title="section 2">2</a>
 <li>reference candidate, <a href=#reference-candidate title="section 3.1">3.1</a>
+<li>resolve a URL, <a href=#dfn-resolve-a-url title="section 2">2</a>
 <li>set of comma-separated tokens, <a href=#dfn-set-of-comma-separated-tokens title="section 2">2</a>
 <li>show<ul><li>event for menu, <a href=#dfn-event-show title="section 2">2</a>
 <li>definition of, <a href=#dfn-show title="section 2">2</a>
