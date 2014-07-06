@@ -549,7 +549,7 @@ span.issue, span.note {
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The mset Attribute</h1>
   <h2 class="no-num no-toc no-ref heading settled heading" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140703>3 July 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140706>6 July 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl>
 	<dt>This version:
 	<dd><a class=u-url href=http://berkmancenter.github.io/cache-link/mset-attribute.html>http://berkmancenter.github.io/cache-link/mset-attribute.html</a>
@@ -568,7 +568,7 @@ span.issue, span.note {
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=https://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 3 July 2014,
+In addition, as of 6 July 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -863,13 +863,11 @@ Processing model</span><a class=self-link href=#processing-model></a></h2>
 
 <p>If the user agent encounters an error while <a href=#dfn-following-hyperlinks>following a hyperlink</a>, e.g., the user agent cannot <a data-link-type=dfn href=#dfn-fetch title=fetch>fetch</a> the resource because the web server of the resource cannot be found, can be found but does not respond, or can be found but responds with an server error, the user agent should display the <a href=#copy-link>copy links</a> defined in the <a class=idl-code data-link-type=attribute href=#dom-htmlanchorelement-mset title=mset>mset</a> attribute of the <a data-link-type=dfn href=#dfn-hyperlink title=hyperlink>hyperlink</a> that was clicked.</p>
 
-<p>queue a task to havigate the browsing context to an error page</p>
-
-<p>If such an error occurs while the user agent is performing the steps defined in <a data-link-type=dfn href=#dfn-following-hyperlinks title="following hyperlink">following hyperlink</a>, it should also perform the following steps after</p>
-
-<p>Buttons or links on 5xx pages</p>
+<p>At the time when the user agent queues a task to <a data-link-type=dfn href=#dfn-navigate title=navigate>navigate</a> the browsing context to an error page, if the user agent elects to do so, it should first store the list of <a href=#copy-link>copy links</a> with the <a data-link-type=dfn href=#dfn-browsing-context title="browsing context">browsing context</a>. On the error page, the user agent should display <a href=hyperlink>hyperlinks</a> or [buttons] which convey all data defined for a <a data-link-type=dfn href=#copy-link title="copy link">copy link</a> and provided by each copy link, i.e., the copy link <a data-biblio-type=normative data-link-type=biblio href=#biblio-url title=biblio-url>[URL]</a>, the date a copy link was referenced, and the <a data-link-type=dfn href=#dfn-link-type title="link type">link type</a>.</p>
 
 <p>Chrome screenshot</p>
+
+<p>What happens on click?</p>
 
 <h2 class="heading settled heading" data-level=5 id=acks><span class=secno>5 </span><span class=content>
 Acknowledgements</span><a class=self-link href=#acks></a></h2>

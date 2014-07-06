@@ -280,13 +280,11 @@ Processing model</h2>
 
   If the user agent encounters an error while <a href="#dfn-following-hyperlinks">following a hyperlink</a>, e.g., the user agent cannot <a>fetch</a> the resource because the web server of the resource cannot be found, can be found but does not respond, or can be found but responds with an server error, the user agent should display the <a href="#copy-link">copy links</a> defined in the <a attribute>mset</a> attribute of the <a>hyperlink</a> that was clicked.
 
-  queue a task to havigate the browsing context to an error page
-
-  If such an error occurs while the user agent is performing the steps defined in <a>following hyperlink</a>, it should also perform the following steps after 
-
-  Buttons or links on 5xx pages
+  At the time when the user agent queues a task to <a>navigate</a> the browsing context to an error page, if the user agent elects to do so, it should first store the list of <a href="#copy-link">copy links</a> with the <a>browsing context</a>. On the error page, the user agent should display <a href="hyperlink">hyperlinks</a> or [buttons] which convey all data defined for a <a>copy link</a> and provided by each copy link, i.e., the copy link [[!URL]], the date a copy link was referenced, and the <a>link type</a>.
 
   Chrome screenshot
+
+  What happens on click?
 
 <h2 id='acks'>
 Acknowledgements</h2>
